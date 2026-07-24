@@ -660,14 +660,52 @@
                 }
             });
             
+            // PASSO 1: RAGGRUPPA I NODI PER COORDINATE ARROTONDATE
+            // QUESTO DECIDE QUALI NODI VANNO NELLO STESSO CLUSTER
+            const groups = {};
+            filteredNodes.forEach(node => {
+                if (node.geolocated && node.latitude && node.longitude) {
+                    // ARROTONDA A 3 DECIMALI (circa 100 metri)
+                    const lat = Math.round(node.latitude * 1000) / 1000;
+                    const lng = Math.round(node.longitude * 1000) / 1000;
+                    const key = `${lat},${lng}`;
+                    if (!groups[key]) groups[key] = [];
+                    groups[key].push(node);
+                }
+            });
+            
             const markersToAdd = [];
             markers = [];
             
             filteredNodes.forEach((node, index) => {
                 if (node.geolocated && node.latitude && node.longitude) {
-                    const [lat, lng] = getUniqueMarkerPosition(node, filteredNodes);
+                    // PASSO 2: TROVA IL GRUPPO DI APPARTENENZA
+                    const baseLat = Math.round(node.latitude * 1000) / 1000;
+                    const baseLng = Math.round(node.longitude * 1000) / 1000;
+                    const key = `${baseLat},${baseLng}`;
+                    const groupNodes = groups[key] || [node];
+                    const groupIndex = groupNodes.indexOf(node);
+                    const totalInGroup = groupNodes.length;
                     
-                    const marker = L.marker([lat, lng], {
+                    // PASSO 3: USA LA STESSA COORDINATA PER TUTTI I NODI DEL GRUPPO
+                    // QUESTA È LA COORDINATA FALSA CONDIVISA
+                    let markerLat = baseLat;
+                    let markerLng = baseLng;
+                    
+                    // PASSO 4: APPLICA UN PICCOLO OFFSET PER EVITARE SOVRAPPOSIZIONE
+                    // MA SOLO SE IL CLUSTER È STATO APERTO (spiderfy)
+                    // PER ORA USIAMO UN OFFSET MINIMO PER DISTINGUERLI
+                    if (totalInGroup > 1) {
+                        // OFFSET MINIMO (0.0001 gradi = circa 10 metri)
+                        // ABBASTANZA PICCOLO PER ESSERE CONSIDERATO STESSO PUNTO
+                        // ABBASTANZA GRANDE PER VEDERE I MARKER APERTI
+                        const radius = 0.0001;
+                        const angle = (groupIndex / totalInGroup) * 2 * Math.PI;
+                        markerLat = baseLat + Math.sin(angle) * radius;
+                        markerLng = baseLng + Math.cos(angle) * radius;
+                    }
+                    
+                    const marker = L.marker([markerLat, markerLng], {
                         icon: createMarkerIcon(node)
                     });
                     
