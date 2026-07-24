@@ -662,7 +662,6 @@
             const groups = {};
             filteredNodes.forEach(node => {
                 if (node.geolocated && node.latitude && node.longitude) {
-                    // ARROTONDA A 3 DECIMALI (circa 100m)
                     const lat = Math.round(node.latitude * 1000) / 1000;
                     const lng = Math.round(node.longitude * 1000) / 1000;
                     const key = `${lat},${lng}`;
@@ -676,9 +675,29 @@
             
             filteredNodes.forEach((node, index) => {
                 if (node.geolocated && node.latitude && node.longitude) {
-                    // USA LE COORDINATE ARROTONDATE PER IL CLUSTERING
-                    const lat = Math.round(node.latitude * 1000) / 1000;
-                    const lng = Math.round(node.longitude * 1000) / 1000;
+                    // PASSO 1: USA COORDINATE ARROTONDATE (IDENTICHE) PER IL CLUSTER
+                    const baseLat = Math.round(node.latitude * 1000) / 1000;
+                    const baseLng = Math.round(node.longitude * 1000) / 1000;
+                    
+                    // PASSO 2: USA LA FUNZIONE getUniqueMarkerPosition PER L'OFFSET
+                    // MA con le coordinate arrotondate, non quelle originali!
+                    const nodeWithRoundedCoords = {
+                        ...node,
+                        latitude: baseLat,
+                        longitude: baseLng
+                    };
+                    
+                    // Crea un array fittizio con SOLO i nodi dello stesso gruppo
+                    const key = `${baseLat},${baseLng}`;
+                    const groupNodes = groups[key] || [node];
+                    const groupNodesWithCoords = groupNodes.map(n => ({
+                        ...n,
+                        latitude: baseLat,
+                        longitude: baseLng
+                    }));
+                    
+                    // Usa getUniqueMarkerPosition per calcolare l'offset
+                    const [lat, lng] = getUniqueMarkerPosition(nodeWithRoundedCoords, groupNodesWithCoords);
                     
                     const marker = L.marker([lat, lng], {
                         icon: createMarkerIcon(node)
