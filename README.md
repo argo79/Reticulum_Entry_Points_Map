@@ -562,8 +562,6 @@ The server is lightweight enough to run on Raspberry Pi, VPS instances and low-p
 
 This project is released under the **MIT License**.
 
-See the [LICENSE](LICENSE) file for the complete license text.
-
 ---
 
 # 👨‍💻 Author
