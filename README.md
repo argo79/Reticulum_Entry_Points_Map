@@ -707,30 +707,31 @@ Possible future improvements include:
 ---
 
 
-<h3>☕ Supporta lo sviluppo</h3>
+<h3>☕ Support Development</h3>
 
 <p>
-  Se questo progetto ti è utile, considera di offrirmi un caffè virtuale! ☕
-  Ogni contributo, piccolo o grande, aiuta a mantenere vivo lo sviluppo.
+If you find this project useful, consider buying me a virtual coffee! ☕
+Every contribution, big or small, helps keep the project alive and supports future development.
 </p>
 
 <div align="center">
 
-### 💰 Donazioni
+### 💰 Donations
+
 [![Donate XRP](https://img.shields.io/badge/Donate-XRP-00A9FF?style=flat&logo=ripple)](https://ripple.com/xrp/)
 [![Donate XMR](https://img.shields.io/badge/Donate-XMR-FF6600?style=flat&logo=monero)](https://www.getmonero.org/)
 [![Donate ETH](https://img.shields.io/badge/Donate-ETH-3C3C3D?style=flat&logo=ethereum)](https://ethereum.org/)
 
-| Cryptovaluta | Indirizzo |
-|--------------|-----------|
-| **XRP** (Ripple) | `rBKbetm51vuQQfg4Yo8fvweRya7gedcr9J` |
-| **XMR** (Monero) | `87jacZEtYvXcgnvEp7wu45gLwRBYpvwMr3N9dqhNipPWV69XwQX658tS73VEdghLopG1wA4STEdMPcGF8Tc3e18eJyQ4kMA` |
-| **ETH** (Ethereum) | `0xd2d85288df96B4162814Ca7492039620371b9D81` |
+| Cryptocurrency | Address |
+|----------------|---------|
+| **XRP (Ripple)** | `rBKbetm51vuQQfg4Yo8fvweRya7gedcr9J` |
+| **XMR (Monero)** | `87jacZEtYvXcgnvEp7wu45gLwRBYpvwMr3N9dqhNipPWV69XwQX658tS73VEdghLopG1wA4STEdMPcGF8Tc3e18eJyQ4kMA` |
+| **ETH (Ethereum)** | `0xd2d85288df96B4162814Ca7492039620371b9D81` |
 
 </div>
 
 <p align="center">
-  <i>🙏 Grazie per il supporto! Ogni donazione è un incentivo a migliorare e aggiungere nuove funzionalità.</i>
+<i>🙏 Thank you for your support! Every donation motivates me to continue improving the project and adding new features.</i>
 </p>
 
 
