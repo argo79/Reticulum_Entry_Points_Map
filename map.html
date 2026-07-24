@@ -308,7 +308,6 @@
                 zoomAnimation: true
             }).setView([20, 0], 2);
             
-            // === CREA IL PANE PER LE ETICHETTE ===
             map.createPane('labels');
             map.getPane('labels').style.zIndex = 650;
             map.getPane('labels').style.pointerEvents = 'none';
@@ -319,76 +318,37 @@
                 maxZoom: 19
             }).addTo(map);
 
-            // CONFIGURAZIONE CLUSTER - MODIFICATA
+            // CONFIGURAZIONE CLUSTER
             clusterGroup = L.markerClusterGroup({
                 maxClusterRadius: 80,
-                spiderfyOnMaxZoom: true,           // PERMETTE SPIDERFY A TUTTI GLI ZOOM
+                spiderfyOnMaxZoom: true,
                 showCoverageOnHover: false,
-                zoomToBoundsOnClick: false,        // NON ZOOMARE MAI
-                spiderfyDistanceMultiplier: 1.5,   // DISTANZA MAGGIORE PER VEDERE MEGLIO
+                zoomToBoundsOnClick: false,
+                spiderfyDistanceMultiplier: 1.5,
                 iconCreateFunction: createClusterIcon,
-                disableClusteringAtZoom: 10,       // ALTO: I CLUSTER NON SI SCIOLGONO MAI
+                disableClusteringAtZoom: 15,
                 chunkedLoading: true,
                 chunkInterval: 100,
-                chunkDelay: 50,
-                spiderfyMaxCount: 999
+                chunkDelay: 50
             });
 
-            // SPIDERFY COMPLETATO
-            clusterGroup.on('spiderfied', function(e) {
-                if (typeof labelsEnabled !== 'undefined' && labelsEnabled && map) {
-                    setTimeout(function() {
-                        if (typeof updateNodeLabels === 'function') {
-                            const zoom = map.getZoom();
-                            updateNodeLabels(zoom >= LABEL_ZOOM_THRESHOLD);
-                        }
-                    }, 500);
-                }
-            });
-
-            // UNSPIDERFY COMPLETATO
-            clusterGroup.on('unspiderfied', function(e) {
-                if (typeof labelsEnabled !== 'undefined' && labelsEnabled && map) {
-                    setTimeout(function() {
-                        if (typeof updateNodeLabels === 'function') {
-                            const zoom = map.getZoom();
-                            updateNodeLabels(zoom >= LABEL_ZOOM_THRESHOLD);
-                        }
-                    }, 200);
-                }
-            });
-
-            // AGGIUNGI QUESTO PER DEBUG
+            // QUANDO CLICCHI SU UN CLUSTER -> ZOOM SUL CLUSTER
             clusterGroup.on('clustermouseclick', function(e) {
                 const layer = e.layer;
-                console.log('CLUSTER CLICKED!', layer);
-                console.log('Child count:', layer.getAllChildMarkers().length);
-                console.log('Is spiderfied?', layer._spiderfied);
+                const childCount = layer.getAllChildMarkers().length;
                 
-                if (layer && layer.spiderfy) {
-                    const childCount = layer.getAllChildMarkers().length;
-                    if (childCount > 1) {
-                        try {
-                            if (layer._spiderfied) {
-                                console.log('UNSPIDERFY');
-                                layer.unspiderfy();
-                            } else {
-                                console.log('SPIDERFY');
-                                layer.spiderfy();
-                            }
-                        } catch(err) {
-                            console.error('ERROR:', err);
-                        }
-                    }
-                }
-            });
-
-            // BLOCCA DOUBLE CLICK SUL CLUSTER
-            clusterGroup.on('clusterdblclick', function(e) {
                 e.originalEvent.stopPropagation();
                 e.originalEvent.preventDefault();
-                if (e.layer && e.layer.spiderfy && !e.layer._spiderfied) {
-                    e.layer.spiderfy();
+                
+                if (childCount > 1) {
+                    const bounds = layer.getBounds();
+                    if (bounds.isValid()) {
+                        map.fitBounds(bounds, {
+                            padding: [80, 80],
+                            maxZoom: 18,
+                            duration: 0.5
+                        });
+                    }
                 }
             });
 
@@ -405,12 +365,10 @@
             
             map.addLayer(clusterGroup);
             
-            // === INIZIALIZZA STRUMENTI ===
             initRuler(map, 'ruler-btn');
             initCircleTool(map, 'circle-btn');
             initLabels(map);
             
-            // === ZOOM PER ETICHETTE ===
             map.on('zoomend', function() {
                 if (labelsEnabled && map) {
                     const zoom = map.getZoom();
