@@ -727,27 +727,7 @@ Every contribution, big or small, helps keep the project alive and supports futu
 | **XMR (Monero)** | `87jacZEtYvXcgnvEp7wu45gLwRBYpvwMr3N9dqhNipPWV69XwQX658tS73VEdghLopG1wA4STEdMPcGF8Tc3e18eJyQ4kMA` |
 | **ETH (Ethereum)** | `0xd2d85288df96B4162814Ca7492039620371b9D81` |
 
-</div>
-
 ---
-
-<p align="center">
-<i>🙏 Thank you for your support! Every donation motivates me to continue improving the project and adding new features.</i>
-</p>
-
-<div align="center">
-
-# 🌐 Reticulum Entry Points Map
-
-### Discover • Visualize • Diagnose • Explore
-
-Interactive mapping for the Reticulum Network with automatic discovery, geolocation and built-in diagnostic tools.
-
-<br>
-
-<img src="img/REPMap.jpg" width="800">
-
-<br>
 
 **Made with ❤️ by Arg0net**
 
