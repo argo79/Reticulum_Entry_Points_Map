@@ -1,0 +1,1506 @@
+{
+  "RNS Budapest(HU)|vjs.hu": {
+    "lat": 47.5,
+    "lng": 19.0412,
+    "desc": "Budapest, Hungary",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-03T20:22:31.395038",
+    "corrected": false
+  },
+  "RNS_TCP_NODE_UK_01|82.22.20.33": {
+    "lat": 51.5081,
+    "lng": 0.1278,
+    "desc": "London, United Kingdom [CORRECTED: -0.13\u21920.13]",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-04T19:54:35.748057",
+    "corrected": true
+  },
+  "0v3rClokEd - RNS01|rns01.powerglitch.ro": {
+    "lat": 45.7777,
+    "lng": 21.2129,
+    "desc": "Timi\u0219oara, Romania",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-04T19:54:35.827347",
+    "corrected": false
+  },
+  "Rhein Ruhr Reticulum I2P-GW|uwafw2ibzgbk5wteqvcip65mtzatjckzo5avfur7vg5asg47oxkq": {
+    "lat": 51.4333,
+    "lng": 7.0667,
+    "desc": "From node name: Ruhr",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-05-16T17:12:42.403852",
+    "corrected": false
+  },
+  "0rbit Iceland|93.95.227.8": {
+    "lat": 64.1476,
+    "lng": -21.9392,
+    "desc": "Reykjavik, Iceland",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-04T19:54:36.606869",
+    "corrected": false
+  },
+  "Beleth|rns.beleth.net": {
+    "lat": 39.018,
+    "lng": -77.539,
+    "desc": "Ashburn, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-04T19:54:36.987488",
+    "corrected": false
+  },
+  "Quad4|62.151.179.77": {
+    "lat": 33.1384,
+    "lng": -95.6011,
+    "desc": "Sulphur Springs, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-03T20:22:32.832173",
+    "corrected": false
+  },
+  "S Westmont PRP|gordontech.duckdns.org": {
+    "lat": 41.792,
+    "lng": -88.166,
+    "desc": "Naperville, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-07T09:58:33.353512",
+    "corrected": false
+  },
+  "SparkN0de-ext1 TCP|aspark.uber.space": {
+    "lat": 50.0037,
+    "lng": 8.26225,
+    "desc": "Mainz, Germany",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-02T21:00:32.497028",
+    "corrected": false
+  },
+  "FireZen-v4|75.133.206.221": {
+    "lat": 42.4397,
+    "lng": -83.7453,
+    "desc": "Whitmore Lake, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-03T20:22:31.720062",
+    "corrected": false
+  },
+  "RNS Spain - Derpy Cloud|rns.derps.me": {
+    "lat": 47.3643,
+    "lng": 8.5437,
+    "desc": "Zurich, Switzerland",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-02T19:49:46.293706",
+    "corrected": false
+  },
+  "V7 Backbone|189.76.168.87": {
+    "lat": -23.5475,
+    "lng": -46.6361,
+    "desc": "S\u00e3o Paulo, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-04T12:20:59.230991",
+    "corrected": false
+  },
+  "V7 Backbone|189.76.171.101": {
+    "lat": -23.5475,
+    "lng": -46.6361,
+    "desc": "S\u00e3o Paulo, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-04T16:21:05.054472",
+    "corrected": false
+  },
+  "V7 Backbone|189.76.171.176": {
+    "lat": -23.5475,
+    "lng": -46.6361,
+    "desc": "S\u00e3o Paulo, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-05T10:13:12.168146",
+    "corrected": false
+  },
+  "V7 Backbone|170.244.196.62": {
+    "lat": -23.5475,
+    "lng": -46.6361,
+    "desc": "S\u00e3o Paulo, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-05T18:13:25.004164",
+    "corrected": false
+  },
+  "rns_sulfat|rns.sulf.at": {
+    "lat": 60.1719,
+    "lng": 24.9347,
+    "desc": "Helsinki, Finland",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-05T23:43:33.134135",
+    "corrected": false
+  },
+  "V7 Backbone|179.127.253.211": {
+    "lat": -16.0637,
+    "lng": -47.9775,
+    "desc": "Valpara\u00edso de Goi\u00e1s, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-06T06:13:42.944223",
+    "corrected": false
+  },
+  "V7 Backbone|189.76.171.168": {
+    "lat": -23.5475,
+    "lng": -46.6361,
+    "desc": "S\u00e3o Paulo, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-06T18:37:47.277273",
+    "corrected": false
+  },
+  "Simply Equipped (US Cloud)|rns.simplyequipped.com": {
+    "lat": 32.7889,
+    "lng": -96.8021,
+    "desc": "Dallas, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-09T04:09:46.024075",
+    "corrected": false
+  },
+  "V7 Backbone|191.128.237.24": {
+    "lat": -23.5475,
+    "lng": -46.6361,
+    "desc": "S\u00e3o Paulo, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-10T12:45:50.110323",
+    "corrected": false
+  },
+  "V7 Backbone|170.244.199.84": {
+    "lat": -23.5475,
+    "lng": -46.6361,
+    "desc": "S\u00e3o Paulo, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-11T12:46:28.970159",
+    "corrected": false
+  },
+  "V7 Backbone|189.6.16.189": {
+    "lat": -15.7798,
+    "lng": -47.9331,
+    "desc": "Bras\u00edlia, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-12T06:46:59.124869",
+    "corrected": false
+  },
+  "V7 Backbone|170.244.198.106": {
+    "lat": -23.5475,
+    "lng": -46.6361,
+    "desc": "S\u00e3o Paulo, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-12T18:47:17.675107",
+    "corrected": false
+  },
+  "RNode Madrid - lazynoda|": {
+    "lat": 40.4168,
+    "lng": 3.7038,
+    "desc": "From node name: Madrid [CORRECTED: -3.70\u21923.70]",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-02-17T05:50:08.654758",
+    "corrected": true
+  },
+  "RNS Spain - lazynoda|reticulum.lazynoda.es": {
+    "lat": 40.3907,
+    "lng": 3.6997,
+    "desc": "Madrid, Spain [CORRECTED: -3.70\u21923.70]",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-23T22:31:22.421089",
+    "corrected": true
+  },
+  "w7rus_finland|77.221.159.41": {
+    "lat": 60.1719,
+    "lng": -24.9347,
+    "desc": "Helsinki, Finland [CORRECTED: 24.93\u2192-24.93]",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-25T11:25:52.052330",
+    "corrected": true
+  },
+  "V7 Backbone|189.76.169.154": {
+    "lat": -23.5475,
+    "lng": -46.6361,
+    "desc": "S\u00e3o Paulo, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-23T16:36:07.779688",
+    "corrected": false
+  },
+  "V7 Backbone|189.76.172.154": {
+    "lat": -23.5475,
+    "lng": -46.6361,
+    "desc": "S\u00e3o Paulo, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-24T16:36:49.960268",
+    "corrected": false
+  },
+  "V7 Backbone|179.127.253.38": {
+    "lat": -16.1014,
+    "lng": -47.9912,
+    "desc": "Valpara\u00edso de Goi\u00e1s, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-25T04:37:10.199545",
+    "corrected": false
+  },
+  "kibitzer.net|47.222.63.35": {
+    "lat": 30.6411,
+    "lng": -97.7511,
+    "desc": "Georgetown, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-25T07:07:14.499299",
+    "corrected": false
+  },
+  "rns.eth.nsk.gw_01|185.84.163.3": {
+    "lat": 54.9833,
+    "lng": -82.8964,
+    "desc": "Novosibirsk, Russia [CORRECTED: 82.90\u2192-82.90]",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-28T14:24:27.766997",
+    "corrected": true
+  },
+  "rns.eth.nsk.node01|185.84.163.3": {
+    "lat": 54.9833,
+    "lng": -82.8964,
+    "desc": "Novosibirsk, Russia [CORRECTED: 82.90\u2192-82.90]",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-26T02:50:00.025361",
+    "corrected": true
+  },
+  "zyx gateway|rns.zyx.li": {
+    "lat": 50.4777,
+    "lng": 12.3649,
+    "desc": "Falkenstein, Germany",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-26T13:20:16.955323",
+    "corrected": false
+  },
+  "Cudanet|174.169.224.253": {
+    "lat": 44.8098,
+    "lng": -73.0918,
+    "desc": "Saint Albans, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-02-27T22:51:11.490378",
+    "corrected": false
+  },
+  "TELATECH WAN Entrypoint|telatech.org": {
+    "lat": 39.9534,
+    "lng": -76.7942,
+    "desc": "York, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-02T07:22:54.716487",
+    "corrected": false
+  },
+  "Mycorrhizal Chat|mycorrhizal.chat": {
+    "lat": 43.6532,
+    "lng": -79.3832,
+    "desc": "Toronto, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-02T18:53:15.715689",
+    "corrected": false
+  },
+  "OPIRG-TO Private Backbone|rns.gayistheway.ca": {
+    "lat": 43.6532,
+    "lng": -79.3832,
+    "desc": "Toronto, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-02T19:53:17.407978",
+    "corrected": false
+  },
+  "OPIRG-TO Public TCP Server|rns.gayistheway.ca": {
+    "lat": 43.6532,
+    "lng": -79.3832,
+    "desc": "Toronto, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-03T17:23:51.372542",
+    "corrected": false
+  },
+  "OPIRG-TO Public Backbone|rns.gayistheway.ca": {
+    "lat": 43.6532,
+    "lng": -79.3832,
+    "desc": "Toronto, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-03T17:23:51.589747",
+    "corrected": false
+  },
+  "pixel_2|xbtyvre9j2.localto.net": {
+    "lat": 41.8781,
+    "lng": -87.6298,
+    "desc": "Chicago, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-09T03:57:44.086239",
+    "corrected": false
+  },
+  "RCN Barrhaven|rcn.tacconelli.net": {
+    "lat": 45.3431,
+    "lng": -75.8291,
+    "desc": "Ottawa, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-11T16:46:21.003763",
+    "corrected": false
+  },
+  "m1cr0b|xlora.ru": {
+    "lat": 54.7431,
+    "lng": -55.9678,
+    "desc": "Ufa, Russia [CORRECTED: 55.97\u2192-55.97]",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-12T22:17:14.195168",
+    "corrected": true
+  },
+  "xlora.ru|xlora.ru": {
+    "lat": 54.7431,
+    "lng": -55.9678,
+    "desc": "Ufa, Russia [CORRECTED: 55.97\u2192-55.97]",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-12T22:17:14.472767",
+    "corrected": true
+  },
+  "Typenull Cloud RNS|rns.typenull.net": {
+    "lat": -33.8688,
+    "lng": -151.209,
+    "desc": "Sydney, Australia [CORRECTED: 151.21\u2192-151.21]",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-13T10:17:35.856044",
+    "corrected": true
+  },
+  "Dayton Mesh|bastion.thekgb.us": {
+    "lat": 39.6345,
+    "lng": -84.1485,
+    "desc": "Centerville, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-14T18:18:29.870403",
+    "corrected": false
+  },
+  "RNS Testnet Sauerland TCP|38.242.217.238": {
+    "lat": 48.9742,
+    "lng": 8.1851,
+    "desc": "Lauterbourg, France",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-18T14:46:16.491171",
+    "corrected": false
+  },
+  "Beleth Clearnet IPv4|rns.beleth.net": {
+    "lat": 39.018,
+    "lng": -77.539,
+    "desc": "Ashburn, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-18T21:39:54.912209",
+    "corrected": false
+  },
+  "Beleth Clearnet IPv6|rns.beleth.net": {
+    "lat": 39.018,
+    "lng": -77.539,
+    "desc": "Ashburn, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-18T21:39:55.115442",
+    "corrected": false
+  },
+  "Beleth RNS Hub|rns.beleth.net": {
+    "lat": 39.018,
+    "lng": -77.539,
+    "desc": "Ashburn, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-18T21:39:55.200161",
+    "corrected": false
+  },
+  "riddler|ssh.whiterabbit.eeems.codes": {
+    "lat": 43.8072,
+    "lng": -79.5946,
+    "desc": "Toronto, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-20T04:54:35.835648",
+    "corrected": false
+  },
+  "owains.lair|reticulum.odj.me": {
+    "lat": 52.1941,
+    "lng": -2.21905,
+    "desc": "Worcester, United Kingdom",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-18T09:48:52.617022",
+    "corrected": false
+  },
+  "CLWI|cmnova.org": {
+    "lat": 43.6532,
+    "lng": -79.3832,
+    "desc": "Toronto, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-20T15:56:45.495450",
+    "corrected": false
+  },
+  "some interface i guess|167.172.191.170": {
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "desc": "WHOIS city: amsterdam",
+    "source": "whois_city",
+    "timestamp": "2026-03-22T08:30:12.969035",
+    "corrected": false
+  },
+  "RMAP.WORLD|rmap.world": {
+    "lat": 46.6034,
+    "lng": 1.8883,
+    "desc": "WHOIS country: FR",
+    "source": "whois_country",
+    "timestamp": "2026-03-23T15:56:47.059070",
+    "corrected": false
+  },
+  "New Zealand Entrypoint|reticulum.asuscomm.com": {
+    "lat": -41.1975,
+    "lng": 174.9189,
+    "desc": "Lower Hutt, New Zealand",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-24T04:01:41.050873",
+    "corrected": false
+  },
+  "Nomadnet SEAsia|rns.jaykayenn.net": {
+    "lat": 3.1408,
+    "lng": 101.6852,
+    "desc": "Kuala Lumpur, Malaysia",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-26T03:26:24.039455",
+    "corrected": false
+  },
+  "INT11 AP (IFAC)|129.151.196.10": {
+    "lat": 59.2484,
+    "lng": 18.1223,
+    "desc": "Stockholm, Sweden",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-26T08:56:35.418447",
+    "corrected": false
+  },
+  "INT11 GW (IFAC)|129.151.196.10": {
+    "lat": 59.2484,
+    "lng": 18.1223,
+    "desc": "Stockholm, Sweden",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-26T08:56:35.496901",
+    "corrected": false
+  },
+  "inertia.chat|rns.inertia.chat": {
+    "lat": -33.8071,
+    "lng": -151.1289,
+    "desc": "Sydney, Australia [CORRECTED: 151.13\u2192-151.13]",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-26T15:12:06.147870",
+    "corrected": true
+  },
+  "RTTR[UA]|83.147.38.110": {
+    "lat": 39.1027,
+    "lng": -94.5778,
+    "desc": "Kansas City, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-28T14:24:26.971435",
+    "corrected": false
+  },
+  "Eppo|86.88.34.10": {
+    "lat": 52.2486,
+    "lng": 6.7847,
+    "desc": "Hengelo, Netherlands",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-28T14:24:27.182839",
+    "corrected": false
+  },
+  "UANODE.TOP|rns.uanode.top": {
+    "lat": 39.1027,
+    "lng": -94.5778,
+    "desc": "Kansas City, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-27T20:13:39.125062",
+    "corrected": false
+  },
+  "RNS.SKYNET IPv4|46.23.92.210": {
+    "lat": 52.3676,
+    "lng": 4.90414,
+    "desc": "Amsterdam, The Netherlands",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-29T14:55:42.061530",
+    "corrected": false
+  },
+  "tcp.noderunner.wgtn.nz|reticulum.asuscomm.com": {
+    "lat": -41.1975,
+    "lng": 174.9189,
+    "desc": "Lower Hutt, New Zealand",
+    "source": "ip-api.com",
+    "timestamp": "2026-03-30T07:56:32.401996",
+    "corrected": false
+  },
+  "a.citadel.rift.pw|a.citadel.rift.pw": {
+    "lat": 50.6736,
+    "lng": -120.4212,
+    "desc": "Kamloops, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-29T19:45:58.417053",
+    "corrected": false
+  },
+  "Vicliu Pi Gateway|th9055963.imdo.co": {
+    "lat": 25.0453,
+    "lng": 102.71,
+    "desc": "Kunming, China",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-01T04:59:05.853109",
+    "corrected": false
+  },
+  "F1HAP Entrypoint|75.156.113.140": {
+    "lat": 50.0243,
+    "lng": -119.4021,
+    "desc": "Lake Country, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-01T20:00:00.247536",
+    "corrected": false
+  },
+  "vicliu.i234.me Gateway|vicliu.i234.me": {
+    "lat": 25.0453,
+    "lng": 102.71,
+    "desc": "Kunming, China",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-06T16:43:41.975335",
+    "corrected": false
+  },
+  "Rheinland Node|ret.mesh-central.org": {
+    "lat": 51.2041,
+    "lng": -6.6922,
+    "desc": "Neuss, Germany [CORRECTED: 6.69\u2192-6.69]",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-01T14:56:45.460392",
+    "corrected": true
+  },
+  "b.citadel.rift.pw|b.citadel.rift.pw": {
+    "lat": 50.5437,
+    "lng": -120.0937,
+    "desc": "Kamloops, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-02T22:21:01.889620",
+    "corrected": false
+  },
+  "Sydney RNS|sydney.reticulum.au": {
+    "lat": -33.8071,
+    "lng": -151.1289,
+    "desc": "Sydney, Australia [CORRECTED: 151.13\u2192-151.13]",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-03T11:32:17.040807",
+    "corrected": true
+  },
+  "Stavropol Node Green Point Local Interface|10.21.47.173": {
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "desc": "WHOIS city: los angeles",
+    "source": "whois_city",
+    "timestamp": "2026-04-06T04:47:47.448660",
+    "corrected": false
+  },
+  "Stavropol Node (Green Point LAN)|10.21.47.173": {
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "desc": "WHOIS city: los angeles",
+    "source": "whois_city",
+    "timestamp": "2026-07-06T07:42:40.480756",
+    "corrected": false
+  },
+  "ESP32 Transport|192.168.10.113": {
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "desc": "WHOIS city: los angeles",
+    "source": "whois_city",
+    "timestamp": "2026-04-08T19:20:59.249260",
+    "corrected": false
+  },
+  "F1HAP Entrypoint|199.119.235.193": {
+    "lat": 46.4334,
+    "lng": -81.1497,
+    "desc": "Lively, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-10T19:27:11.580409",
+    "corrected": false
+  },
+  "F1HAP Entrypoint|199.7.159.4": {
+    "lat": 51.0501,
+    "lng": -114.085,
+    "desc": "Calgary, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-10T19:57:13.246730",
+    "corrected": false
+  },
+  "frasgas|frasgas.duckdns.org": {
+    "lat": 56.6732,
+    "lng": 12.8598,
+    "desc": "Halmstad, Sweden",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-11T08:27:50.043209",
+    "corrected": false
+  },
+  "Fish Central|fishyfish.go.ro": {
+    "lat": 44.4865,
+    "lng": 26.1738,
+    "desc": "Voluntari, Romania",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-11T16:28:14.119479",
+    "corrected": false
+  },
+  "zer0bitz|zer0bitz.ddns.net": {
+    "lat": 60.1872,
+    "lng": 24.9585,
+    "desc": "Helsinki, Finland",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-12T16:59:30.997669",
+    "corrected": false
+  },
+  "ams_ret_01|5.181.177.63": {
+    "lat": 52.3759,
+    "lng": 4.8975,
+    "desc": "Amsterdam, Netherlands",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-18T18:24:12.556316",
+    "corrected": false
+  },
+  "FTP US-NorthCentral Transport (Ohio)|": {
+    "lat": 37.0902,
+    "lng": -95.7129,
+    "desc": "From node name: Us",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-04-21T01:27:20.665957",
+    "corrected": false
+  },
+  "Solarpunk Pioneers Propagation Node|reticulum.solarpunk-pioneers.org": {
+    "lat": 48.3899,
+    "lng": 10.9092,
+    "desc": "Augsburg, Germany",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-23T04:30:20.761152",
+    "corrected": false
+  },
+  "RedNova Test Network|rns.uasclan.net": {
+    "lat": 41.0018,
+    "lng": -73.6657,
+    "desc": "Port Chester, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-24T00:31:28.908560",
+    "corrected": false
+  },
+  "Auckland RNS IFAC|akl.reticulum.net.nz": {
+    "lat": -37.1984,
+    "lng": 174.9089,
+    "desc": "Pukekohe, New Zealand",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-24T07:05:08.003351",
+    "corrected": false
+  },
+  "schttopup.com|rns.schttopup.com": {
+    "lat": 48.8575,
+    "lng": 2.35138,
+    "desc": "Paris, France",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-25T16:11:00.691301",
+    "corrected": false
+  },
+  "schttopup.com|schttopup.com": {
+    "lat": 48.8575,
+    "lng": 2.35138,
+    "desc": "Paris, France",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-25T17:11:04.176985",
+    "corrected": false
+  },
+  "Public Entrypoint|149.28.254.185": {
+    "lat": 32.7889,
+    "lng": -96.8021,
+    "desc": "Dallas, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-25T23:41:23.100401",
+    "corrected": false
+  },
+  "Washmesh Gateway|reticulum.washmesh.net": {
+    "lat": 43.6532,
+    "lng": -79.3832,
+    "desc": "Toronto, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-04-28T02:13:55.167925",
+    "corrected": false
+  },
+  "RubySucks|192.168.1.63": {
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "desc": "WHOIS city: los angeles",
+    "source": "whois_city",
+    "timestamp": "2026-04-29T15:15:42.014504",
+    "corrected": false
+  },
+  "Melbourne RNS IFAC|mel.reticulum.net.nz": {
+    "lat": -33.8688,
+    "lng": -151.209,
+    "desc": "Sydney, Australia [CORRECTED: 151.21\u2192-151.21]",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-29T14:50:54.094534",
+    "corrected": true
+  },
+  "UTN Home Node|10.0.50.16": {
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "desc": "WHOIS city: los angeles",
+    "source": "whois_city",
+    "timestamp": "2026-06-29T22:51:51.359695",
+    "corrected": false
+  },
+  "UTN Oregon Gateway|rns.utn.lol": {
+    "lat": 45.526,
+    "lng": -122.9874,
+    "desc": "Hillsboro, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-30T11:53:24.071352",
+    "corrected": false
+  },
+  "Wirebase|mesh.wirebase.org": {
+    "lat": 45.5235,
+    "lng": -122.676,
+    "desc": "Portland, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-08T06:29:46.974978",
+    "corrected": false
+  },
+  "The_Pond|thepond.webhop.me": {
+    "lat": 46.2453,
+    "lng": -60.2261,
+    "desc": "Sydney Mines, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-08T18:30:29.128216",
+    "corrected": false
+  },
+  "Dark Doodad 23|207.174.40.24": {
+    "lat": 46.8131,
+    "lng": -71.2075,
+    "desc": "Qu\u00e9bec, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-12T20:06:10.919381",
+    "corrected": false
+  },
+  "WestSPb EZ point|rns.eezo.top": {
+    "lat": 59.8983,
+    "lng": -30.2618,
+    "desc": "St Petersburg, Russia [CORRECTED: 30.26\u2192-30.26]",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-12T00:03:00.655203",
+    "corrected": true
+  },
+  "Erix_BG - Bergamo, IT|reticulumbg.duckdns.org": {
+    "lat": 45.5251,
+    "lng": 9.518,
+    "desc": "Cassano d'Adda, Italy",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-15T10:40:40.413954",
+    "corrected": false
+  },
+  "Boredohm Public Gateway|prns.boredohm.com": {
+    "lat": 50.4777,
+    "lng": 12.3649,
+    "desc": "Falkenstein, Germany",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-15T23:41:54.891548",
+    "corrected": false
+  },
+  "Discovered BackboneInterface|163.192.117.66": {
+    "lat": 41.8486,
+    "lng": -87.6288,
+    "desc": "Chicago, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-18T08:15:04.132240",
+    "corrected": false
+  },
+  "Discovered BackboneInterface|92.5.79.231": {
+    "lat": 50.1049,
+    "lng": 8.6295,
+    "desc": "Frankfurt am Main, Germany",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-19T20:17:32.044194",
+    "corrected": false
+  },
+  "Popojoker_Buttcave_Relay_4Catwoman|92.5.79.231": {
+    "lat": 50.1049,
+    "lng": 8.6295,
+    "desc": "Frankfurt am Main, Germany",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-19T23:47:47.551190",
+    "corrected": false
+  },
+  "KD1.RNODE.KIDDERMINSTER.UK|": {
+    "lat": 55.3781,
+    "lng": 3.436,
+    "desc": "From node name: Uk [CORRECTED: -3.44\u21923.44]",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-05-21T23:21:46.097084",
+    "corrected": true
+  },
+  "TQ RNS|5.135.184.193": {
+    "lat": 50.6924,
+    "lng": 3.20113,
+    "desc": "Roubaix, France",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-22T10:22:37.098852",
+    "corrected": false
+  },
+  "NAUTILUS Gateway|41.216.182.131": {
+    "lat": 59.3293,
+    "lng": -18.0685,
+    "desc": "Stockholm, Sweden [CORRECTED: 18.07\u2192-18.07]",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-22T23:53:32.826070",
+    "corrected": true
+  },
+  "RNS TQ|5.135.184.193": {
+    "lat": 50.6924,
+    "lng": 3.20113,
+    "desc": "Roubaix, France",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-22T14:59:36.631847",
+    "corrected": false
+  },
+  "Discovered BackboneInterface|192.168.4.75": {
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "desc": "WHOIS city: los angeles",
+    "source": "whois_city",
+    "timestamp": "2026-06-25T02:37:27.912428",
+    "corrected": false
+  },
+  "Discovered BackboneInterface|419e0280abc1.sn.mynetname.net": {
+    "lat": 55.7487,
+    "lng": -37.6187,
+    "desc": "Moscow, Russia [CORRECTED: 37.62\u2192-37.62]",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-25T09:08:16.181107",
+    "corrected": true
+  },
+  "Discovered BackboneInterface|163.192.101.254": {
+    "lat": 41.8486,
+    "lng": -87.6288,
+    "desc": "Chicago, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-26T22:30:38.001463",
+    "corrected": false
+  },
+  "Discovered BackboneInterface|147.224.203.244": {
+    "lat": 41.8486,
+    "lng": -87.6288,
+    "desc": "Chicago, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-27T16:15:19.538011",
+    "corrected": false
+  },
+  "Wellington RNS IFAC|wlg.reticulum.net.nz": {
+    "lat": -41.2869,
+    "lng": 174.7804,
+    "desc": "Wellington, New Zealand",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-27T06:44:04.168248",
+    "corrected": false
+  },
+  "UK_STILLMAN_I2P_GATEWAY|fnepnuasersjvacifl34zniowfosv7z3ebslnl6sqfphz3i6vqkq": {
+    "lat": 55.3781,
+    "lng": 3.436,
+    "desc": "From node name: Uk [CORRECTED: -3.44\u21923.44]",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-07-05T17:40:54.740760",
+    "corrected": true
+  },
+  "NAUTILUS Backbone Gateway|41.216.182.131": {
+    "lat": 59.3293,
+    "lng": -18.0685,
+    "desc": "Stockholm, Sweden [CORRECTED: 18.07\u2192-18.07]",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-28T22:35:50.729678",
+    "corrected": true
+  },
+  "NAUTILUS|41.216.182.131": {
+    "lat": 59.3293,
+    "lng": -18.0685,
+    "desc": "Stockholm, Sweden [CORRECTED: 18.07\u2192-18.07]",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-27T23:16:08.383863",
+    "corrected": true
+  },
+  "NAUTILUS-CA TCP|91.194.11.246": {
+    "lat": 41.6959,
+    "lng": -44.832,
+    "desc": "Tbilisi, Georgia [CORRECTED: 44.83\u2192-44.83]",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-29T03:36:11.352009",
+    "corrected": true
+  },
+  "NAUTILUS-CA|91.194.11.246": {
+    "lat": 41.6959,
+    "lng": -44.832,
+    "desc": "Tbilisi, Georgia [CORRECTED: 44.83\u2192-44.83]",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-29T03:36:11.569845",
+    "corrected": true
+  },
+  "Discovered BackboneInterface|188.166.83.139": {
+    "lat": 52.352,
+    "lng": 4.9392,
+    "desc": "Amsterdam, Netherlands",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-29T10:06:36.030487",
+    "corrected": false
+  },
+  "Discovered BackboneInterface|134.209.137.250": {
+    "lat": 52.352,
+    "lng": 4.9392,
+    "desc": "Amsterdam, Netherlands",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-29T14:06:52.432406",
+    "corrected": false
+  },
+  "Discovered BackboneInterface|rns.h.acked.co.uk": {
+    "lat": 52.352,
+    "lng": 4.9392,
+    "desc": "Amsterdam, Netherlands",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-29T14:36:54.589638",
+    "corrected": false
+  },
+  "rns.h.acked.co.uk|rns.h.acked.co.uk": {
+    "lat": 52.352,
+    "lng": 4.9392,
+    "desc": "Amsterdam, The Netherlands",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-28T15:18:02.950831",
+    "corrected": false
+  },
+  "RUHR\u2692\ufe0fRETI_I2P-GW|uwafw2ibzgbk5wteqvcip65mtzatjckzo5avfur7vg5asg47oxkq": {
+    "lat": 51.4333,
+    "lng": 7.0667,
+    "desc": "From node name: Ruhr",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-05-29T16:37:01.949195",
+    "corrected": false
+  },
+  "rns.pnpstep.mom:4242 backBONE-link|89.125.255.133": {
+    "lat": 52.3716,
+    "lng": 4.8883,
+    "desc": "Amsterdam, The Netherlands",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-29T09:20:12.531681",
+    "corrected": false
+  },
+  "NAUTILUS_RUSSIA_443|194.87.252.80": {
+    "lat": 55.7558,
+    "lng": -37.6173,
+    "desc": "Moscow, Russia [CORRECTED: 37.62\u2192-37.62]",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-31T04:09:45.113096",
+    "corrected": true
+  },
+  "NAUTILUS-MOSCOW|194.87.252.80": {
+    "lat": 55.7558,
+    "lng": -37.6173,
+    "desc": "Moscow, Russia [CORRECTED: 37.62\u2192-37.62]",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-31T04:09:45.339574",
+    "corrected": true
+  },
+  "NAUTILUS_CANADA TCP|91.194.11.246": {
+    "lat": 41.6959,
+    "lng": -44.832,
+    "desc": "Tbilisi, Georgia [CORRECTED: 44.83\u2192-44.83]",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-31T04:09:45.405255",
+    "corrected": true
+  },
+  "NAUTILUS_CANADA|91.194.11.246": {
+    "lat": 41.6959,
+    "lng": -44.832,
+    "desc": "Tbilisi, Georgia [CORRECTED: 44.83\u2192-44.83]",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-31T04:09:45.621345",
+    "corrected": true
+  },
+  "NAUTILUS_RUSSIA|194.87.252.80": {
+    "lat": 55.7558,
+    "lng": -37.6173,
+    "desc": "Moscow, Russia [CORRECTED: 37.62\u2192-37.62]",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-30T04:22:30.024833",
+    "corrected": true
+  },
+  "NAUTILUS-MOSCOW-443|194.87.252.80": {
+    "lat": 55.7558,
+    "lng": -37.6173,
+    "desc": "Moscow, Russia [CORRECTED: 37.62\u2192-37.62]",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-31T04:09:45.915455",
+    "corrected": true
+  },
+  "NAUTILUS_CZECH_REPUBLIC|94.131.97.180": {
+    "lat": 50.0755,
+    "lng": -14.4378,
+    "desc": "Prague, Czechia [CORRECTED: 14.44\u2192-14.44]",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-31T04:39:48.259860",
+    "corrected": true
+  },
+  "NAUTILUS_CZECH_REPUBLIC_4965|94.131.97.180": {
+    "lat": 50.0755,
+    "lng": -14.4378,
+    "desc": "Prague, Czechia [CORRECTED: 14.44\u2192-14.44]",
+    "source": "ip-api.com",
+    "timestamp": "2026-05-31T05:09:51.256633",
+    "corrected": true
+  },
+  "V7 Backbone|191.122.208.49": {
+    "lat": -15.7798,
+    "lng": -47.9331,
+    "desc": "Bras\u00edlia, Brazil",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-02T03:13:16.999885",
+    "corrected": false
+  },
+  "bchtokyo|346fi7yvmr6oktbddj6v3l4txwsmfgilg54phdky4bpio73w22cq": {
+    "lat": 35.6762,
+    "lng": 139.6503,
+    "desc": "From node name: Tokyo",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-06-06T09:57:06.583799",
+    "corrected": false
+  },
+  "NW Naperville PRP|gordontech.duckdns.org": {
+    "lat": 41.792,
+    "lng": -88.166,
+    "desc": "Naperville, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-08T00:36:31.409063",
+    "corrected": false
+  },
+  "Apollo|192.168.2.116": {
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "desc": "WHOIS city: los angeles",
+    "source": "whois_city",
+    "timestamp": "2026-06-08T18:30:30.303746",
+    "corrected": false
+  },
+  "Bitcoin Cash Tokyo|240b:11:7ee5:cf12:5054:ff:fe45:2905": {
+    "lat": 35.6762,
+    "lng": 139.6503,
+    "desc": "From node name: Tokyo",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-06-11T07:05:00.505334",
+    "corrected": false
+  },
+  "Popojoker_Buttcave_Relay_TwofaCeParty|92.5.79.231": {
+    "lat": 50.1049,
+    "lng": 8.6295,
+    "desc": "Frankfurt am Main, Germany",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-11T19:35:50.339183",
+    "corrected": false
+  },
+  "Bitcoin Cash Tokyo|rns.bitcoincash.tokyo": {
+    "lat": 35.6762,
+    "lng": 139.6503,
+    "desc": "From node name: Tokyo",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-07-12T02:49:52.877232",
+    "corrected": false
+  },
+  "wintermute|212.216.248.53": {
+    "lat": 41.8905,
+    "lng": 12.5127,
+    "desc": "Rome, Italy",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-12T17:37:21.794521",
+    "corrected": false
+  },
+  "Debuggum Reticulum Transport|reticulum.debuggum.xyz": {
+    "lat": 43.6532,
+    "lng": -79.3832,
+    "desc": "Toronto, Canada",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-14T12:40:53.550646",
+    "corrected": false
+  },
+  "wait.ac|wait.ac": {
+    "lat": -33.8672,
+    "lng": -151.1997,
+    "desc": "Sydney, Australia [CORRECTED: 151.20\u2192-151.20]",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-15T14:13:00.638237",
+    "corrected": true
+  },
+  "ToReticulum Gateway (experimental Tor gateway - use it with SOCKSClientInterface!)|anwbdlh5vvqejooban4mc4bqzjzbwx3ohiav3anvme264cdmmt2v35id.onion": {
+    "lat": 37.0902,
+    "lng": -95.7129,
+    "desc": "From node name: Us",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-06-15T23:43:49.586556",
+    "corrected": false
+  },
+  "ReticuLoki Gateway (experimental Lokinet gateway - use with lokinet daemon running)|jo6wsjpgjcjxst7kgqhiaina43axdewzrrm4wtarxj4sbxc8qf8o.loki": {
+    "lat": 37.0902,
+    "lng": -95.7129,
+    "desc": "From node name: Us",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-06-15T23:43:50.256577",
+    "corrected": false
+  },
+  "reticulum.wait.ac|wait.ac": {
+    "lat": -33.8672,
+    "lng": -151.1997,
+    "desc": "Sydney, Australia [CORRECTED: 151.20\u2192-151.20]",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-16T00:43:54.905701",
+    "corrected": true
+  },
+  "reticulum.wait.ac|reticulum.wait.ac": {
+    "lat": -33.8672,
+    "lng": -151.1997,
+    "desc": "Sydney, Australia [CORRECTED: 151.20\u2192-151.20]",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-16T01:13:57.544447",
+    "corrected": true
+  },
+  "ToReticulum Gateway (experimental Tor gateway - use it with SOCKSClientInterface!)|edz422kobqpb6tgny6rdvdky5cdrnh5dnzmnn6c2twwebvomk2fdgxyd.onion": {
+    "lat": 37.0902,
+    "lng": -95.7129,
+    "desc": "From node name: Us",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-06-17T01:16:04.421239",
+    "corrected": false
+  },
+  "ReticuLoki Gateway (experimental Lokinet gateway - use with lokinet daemon running)|yp87gc4xszz5zxzo8i6cuoyep48j3ggcxkfowshu6c6s3zoai1iy.loki": {
+    "lat": 37.0902,
+    "lng": -95.7129,
+    "desc": "From node name: Us",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-06-17T01:16:04.426496",
+    "corrected": false
+  },
+  "RUHR-\u2692-RETI |Tor-GW|tph2ezvdouoqvzc5kxn2wdfcuobbrzltrr72suhwgfl5n3unyk6kghid.onion": {
+    "lat": 51.4333,
+    "lng": 7.0667,
+    "desc": "From node name: Ruhr",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-06-17T20:17:42.743297",
+    "corrected": false
+  },
+  "RUHR-\u2692-RETI | Tor-GW <-> SOCKSClientInterface|tph2ezvdouoqvzc5kxn2wdfcuobbrzltrr72suhwgfl5n3unyk6kghid.onion": {
+    "lat": 51.4333,
+    "lng": 7.0667,
+    "desc": "From node name: Ruhr",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-06-17T20:47:44.865837",
+    "corrected": false
+  },
+  "RUHR-\u2692-RETI | I2P-GW|webejkcdlwk3z53cebtoed3lpeobrmlsaawvhx5mtx24sbbadneq": {
+    "lat": 51.4333,
+    "lng": 7.0667,
+    "desc": "From node name: Ruhr",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-06-18T11:18:59.149712",
+    "corrected": false
+  },
+  "Burgers backbone|188.169.142.232": {
+    "lat": 41.6473,
+    "lng": 41.6258,
+    "desc": "Batumi, Georgia",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-18T13:49:10.102769",
+    "corrected": false
+  },
+  "workorse|workorse.de": {
+    "lat": 50.3986,
+    "lng": 8.07958,
+    "desc": "Limburg an der Lahn, Germany",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-19T20:19:45.423003",
+    "corrected": false
+  },
+  "RUHR-\u2692-RETI | I2P-BB-GW <-> I2PInterface|emrpfen2gl6us7fl5mwuyskxnl5zjguodmyra5z7j3p747wjucpq.b32.i2p": {
+    "lat": 51.4333,
+    "lng": 7.0667,
+    "desc": "From node name: Ruhr",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-06-21T15:56:10.143601",
+    "corrected": false
+  },
+  "RUHR-\u2692-RETI | I2P-BB-GW|e23kcx6v5ihil66mx3wnngg6hnuo2pqceohcvouen6fpswvdg7ja": {
+    "lat": 51.4333,
+    "lng": 7.0667,
+    "desc": "From node name: Ruhr",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-06-21T15:56:11.000772",
+    "corrected": false
+  },
+  "Discovered BackboneInterface|46.17.104.181": {
+    "lat": 55.7487,
+    "lng": -37.6187,
+    "desc": "Moscow, Russia [CORRECTED: 37.62\u2192-37.62]",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-22T16:29:45.490083",
+    "corrected": true
+  },
+  "Valleirug ipv6|rns6.valleirug.nl": {
+    "lat": 52.1326,
+    "lng": 5.2913,
+    "desc": "TLD: Netherlands",
+    "source": "tld",
+    "timestamp": "2026-06-23T11:02:22.308610",
+    "corrected": false
+  },
+  "InDiViD|81.23.183.60": {
+    "lat": 53.5323,
+    "lng": -49.3435,
+    "desc": "Tolyatti, Russia [CORRECTED: 49.34\u2192-49.34]",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-23T15:02:58.080429",
+    "corrected": true
+  },
+  "InstructionGraph Reticulum node PAR|51.159.125.119": {
+    "lat": 48.8558,
+    "lng": 2.3494,
+    "desc": "Paris, France",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-23T18:03:18.165531",
+    "corrected": false
+  },
+  "PhantomJunction|phantomjunction.duckdns.org": {
+    "lat": 47.1771,
+    "lng": -122.1865,
+    "desc": "Bonney Lake, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-24T00:34:20.892375",
+    "corrected": false
+  },
+  "Phantom-Junction|phantomjunction.duckdns.org": {
+    "lat": 47.1771,
+    "lng": -122.1865,
+    "desc": "Bonney Lake, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-25T10:38:29.096360",
+    "corrected": false
+  },
+  "paltepuk-paltepuk-doma I2P Public Entrypoint|wunvyc6gqeur7wttbzrakidi34w6koneulyzml4mmayfmdda46bq": {
+    "lat": 55.3781,
+    "lng": 3.436,
+    "desc": "From node name: Uk [CORRECTED: -3.44\u21923.44]",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-06-26T04:40:44.308199",
+    "corrected": true
+  },
+  "paltepuk-doma I2P Public Entrypoint|wunvyc6gqeur7wttbzrakidi34w6koneulyzml4mmayfmdda46bq": {
+    "lat": 55.3781,
+    "lng": 3.436,
+    "desc": "From node name: Uk [CORRECTED: -3.44\u21923.44]",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-06-26T07:11:02.576717",
+    "corrected": true
+  },
+  "Carmelo FR Entrypoint|reticulum.carmelo.fr": {
+    "lat": 49.3772,
+    "lng": 1.10947,
+    "desc": "Saint-\u00c9tienne-du-Rouvray, France",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-26T07:41:06.593526",
+    "corrected": false
+  },
+  "Parallel RNS-1 // Public Hub|rns1.buildwithparallel.com": {
+    "lat": 41.2619,
+    "lng": -95.8608,
+    "desc": "Council Bluffs, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-26T11:41:37.697296",
+    "corrected": false
+  },
+  "rns.geckocloud.net|rns.geckocloud.net": {
+    "lat": 55.7085,
+    "lng": -37.594,
+    "desc": "Moscow, Russia [CORRECTED: 37.59\u2192-37.59]",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-27T15:45:14.993919",
+    "corrected": true
+  },
+  "Dolphintek Hub Backbone|cloud.dolphintek.com.au": {
+    "lat": -27.4683,
+    "lng": -153.0322,
+    "desc": "Brisbane, Australia [CORRECTED: 153.03\u2192-153.03]",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-28T03:46:40.606075",
+    "corrected": true
+  },
+  "HADARC Hub Backbone|hub.hadarc.org.au": {
+    "lat": -33.8071,
+    "lng": -151.1289,
+    "desc": "Sydney, Australia [CORRECTED: 151.13\u2192-151.13]",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-28T04:16:44.189350",
+    "corrected": true
+  },
+  "VK2DIO Hub Backbone|asl.vk2dio.net": {
+    "lat": -27.4794,
+    "lng": -153.084,
+    "desc": "Brisbane, Australia [CORRECTED: 153.08\u2192-153.08]",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-28T07:47:10.186598",
+    "corrected": true
+  },
+  "CenTex1|129.159.73.117": {
+    "lat": 39.018,
+    "lng": -77.539,
+    "desc": "Ashburn, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-28T13:17:48.456221",
+    "corrected": false
+  },
+  "rns.pnpstep.mom:35342 backBONE-link|89.125.255.133": {
+    "lat": 52.3716,
+    "lng": 4.8883,
+    "desc": "Amsterdam, The Netherlands",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-29T01:49:19.023282",
+    "corrected": false
+  },
+  "Valleirug ipv6|rns.valleirug.nl": {
+    "lat": 52.069,
+    "lng": 5.1024,
+    "desc": "Utrecht, The Netherlands",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-29T09:20:12.243375",
+    "corrected": false
+  },
+  "Valleirug extra ipv4|rne.valleirug.nl": {
+    "lat": 52.3933,
+    "lng": 5.2669,
+    "desc": "Almere Stad, The Netherlands",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-30T10:23:12.174151",
+    "corrected": false
+  },
+  "Valleirug extra ipv6|rne.valleirug.nl": {
+    "lat": 52.3933,
+    "lng": 5.2669,
+    "desc": "Almere Stad, The Netherlands",
+    "source": "ip-api.com",
+    "timestamp": "2026-06-30T10:23:12.391405",
+    "corrected": false
+  },
+  "D2|192.168.178.73": {
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "desc": "WHOIS city: los angeles",
+    "source": "whois_city",
+    "timestamp": "2026-07-05T15:10:35.180937",
+    "corrected": false
+  },
+  "D1|192.168.178.73": {
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "desc": "WHOIS city: los angeles",
+    "source": "whois_city",
+    "timestamp": "2026-07-05T15:10:36.295758",
+    "corrected": false
+  },
+  "rns_frankfurt_am_main|92.118.206.240": {
+    "lat": 49.8587,
+    "lng": 10.008,
+    "desc": "Estenfeld, Germany",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-09T21:41:48.876110",
+    "corrected": false
+  },
+  "Discovered BackboneInterface|92.118.206.240": {
+    "lat": 49.8587,
+    "lng": 10.008,
+    "desc": "Estenfeld, Germany",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-09T21:41:49.089142",
+    "corrected": false
+  },
+  "CCLLC-Net Public TCP Gateway|rns.ccllc.xyz": {
+    "lat": 30.0409,
+    "lng": -95.5302,
+    "desc": "Spring, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-12T14:55:44.463962",
+    "corrected": false
+  },
+  "RUHR--RETI | I2P-BB-GW <-> I2PInterface|emrpfen2gl6us7fl5mwuyskxnl5zjguodmyra5z7j3p747wjucpq.b32.i2p": {
+    "lat": 51.4333,
+    "lng": 7.0667,
+    "desc": "From node name: Ruhr",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-07-12T18:57:07.379338",
+    "corrected": false
+  },
+  "RUHR--RETI | I2P-GW|webejkcdlwk3z53cebtoed3lpeobrmlsaawvhx5mtx24sbbadneq": {
+    "lat": 51.4333,
+    "lng": 7.0667,
+    "desc": "From node name: Ruhr",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-07-12T18:57:08.103527",
+    "corrected": false
+  },
+  "RUHR--RETI | Tor-GW <-> SOCKSClientInterface|tph2ezvdouoqvzc5kxn2wdfcuobbrzltrr72suhwgfl5n3unyk6kghid.onion": {
+    "lat": 51.4333,
+    "lng": 7.0667,
+    "desc": "From node name: Ruhr",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-07-12T18:57:08.384220",
+    "corrected": false
+  },
+  "wisco.network TCP|147.224.203.244": {
+    "lat": 41.8486,
+    "lng": -87.6288,
+    "desc": "Chicago, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-12T21:57:27.048619",
+    "corrected": false
+  },
+  "spr0uts.lab TCP|192.168.4.75": {
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "desc": "WHOIS city: los angeles",
+    "source": "whois_city",
+    "timestamp": "2026-07-12T21:57:28.214286",
+    "corrected": false
+  },
+  "UK_Public_Entrypoint|82.22.20.33": {
+    "lat": 51.5081,
+    "lng": 0.1278,
+    "desc": "London, United Kingdom [CORRECTED: -0.13\u21920.13]",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-14T12:49:05.216311",
+    "corrected": true
+  },
+  "US_Public_Entrypoint|23.94.66.101": {
+    "lat": 42.8864,
+    "lng": -78.8784,
+    "desc": "Buffalo, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-14T12:49:05.504645",
+    "corrected": false
+  },
+  "KOmesh Lithuania backbone|rns.underorion.se": {
+    "lat": 54.6876,
+    "lng": -25.2806,
+    "desc": "Vilnius, Lithuania [CORRECTED: 25.28\u2192-25.28]",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-16T11:13:07.833265",
+    "corrected": true
+  },
+  "wisco.network TCP|147.224.161.226": {
+    "lat": 41.8486,
+    "lng": -87.6288,
+    "desc": "Chicago, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-19T01:47:28.904660",
+    "corrected": false
+  },
+  "Discovered BackboneInterface|52.55.65.39": {
+    "lat": 39.0438,
+    "lng": -77.4874,
+    "desc": "Ashburn, United States",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-21T15:27:03.492885",
+    "corrected": false
+  },
+  "Discovered BackboneInterface|62.45.137.21": {
+    "lat": 51.7612,
+    "lng": 4.168,
+    "desc": "Middelharnis, The Netherlands",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-23T14:02:00.053636",
+    "corrected": false
+  },
+  "andromeda_hell|": {
+    "lat": 41.9028,
+    "lng": 12.4964,
+    "desc": "From node name: Rome",
+    "source": "name_match_low_confidence",
+    "timestamp": "2026-07-23T19:02:38.638959",
+    "corrected": false
+  }
+}
