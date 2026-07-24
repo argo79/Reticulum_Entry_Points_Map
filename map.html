@@ -358,24 +358,32 @@
                 }
             });
 
-            // GESTIONE CLICK SUL CLUSTER - FORZA SPIDERFY
+            // FORZA L'APERTURA DI TUTTI I CLUSTER
             clusterGroup.on('clustermouseclick', function(e) {
                 const layer = e.layer;
                 if (layer && layer.spiderfy) {
                     const childCount = layer.getAllChildMarkers().length;
                     
-                    // BLOCCA LO ZOOM
                     e.originalEvent.stopPropagation();
                     e.originalEvent.preventDefault();
                     
-                    // SE HA PIÙ DI 1 NODO, FA TOGGLE
                     if (childCount > 1) {
-                        // SE È GIÀ APERTO, CHIUDI
-                        if (layer._spiderfied) {
-                            layer.unspiderfy();
-                        } else {
-                            // ALTRIMENTI APRI A VENTAGLIO
-                            layer.spiderfy();
+                        // FORZA L'APERTURA
+                        try {
+                            if (layer._spiderfied) {
+                                layer.unspiderfy();
+                            } else {
+                                layer.spiderfy();
+                            }
+                        } catch(err) {
+                            // SE SPIDERFY FALLISCE, USA FITBOUNDS
+                            const bounds = layer.getBounds();
+                            if (bounds.isValid()) {
+                                map.fitBounds(bounds, {
+                                    padding: [50, 50],
+                                    maxZoom: 18
+                                });
+                            }
                         }
                     }
                 }
@@ -658,12 +666,13 @@
                 }
             });
             
-            // RAGGRUPPA PER COORDINATE ARROTONDATE
+            // RAGGRUPPA I NODI PER COORDINATE ARROTONDATE
             const groups = {};
             filteredNodes.forEach(node => {
                 if (node.geolocated && node.latitude && node.longitude) {
-                    const lat = Math.round(node.latitude * 1000) / 1000;
-                    const lng = Math.round(node.longitude * 1000) / 1000;
+                    // ARROTONDA A 4 DECIMALI (circa 10 metri)
+                    const lat = Math.round(node.latitude * 10000) / 10000;
+                    const lng = Math.round(node.longitude * 10000) / 10000;
                     const key = `${lat},${lng}`;
                     if (!groups[key]) groups[key] = [];
                     groups[key].push(node);
@@ -675,31 +684,32 @@
             
             filteredNodes.forEach((node, index) => {
                 if (node.geolocated && node.latitude && node.longitude) {
-                    // PASSO 1: USA COORDINATE ARROTONDATE (IDENTICHE) PER IL CLUSTER
-                    const baseLat = Math.round(node.latitude * 1000) / 1000;
-                    const baseLng = Math.round(node.longitude * 1000) / 1000;
+                    // USA LE COORDINATE ARROTONDATE PER TUTTI I MARKER
+                    const baseLat = Math.round(node.latitude * 10000) / 10000;
+                    const baseLng = Math.round(node.longitude * 10000) / 10000;
                     
-                    // PASSO 2: USA LA FUNZIONE getUniqueMarkerPosition PER L'OFFSET
-                    // MA con le coordinate arrotondate, non quelle originali!
-                    const nodeWithRoundedCoords = {
-                        ...node,
-                        latitude: baseLat,
-                        longitude: baseLng
-                    };
+                    // TUTTI I MARKER CON LA STESSA COORDINATA ARROTONDATA
+                    // AVRANNO LA STESSA IDENTICA COORDINATA
+                    let markerLat = baseLat;
+                    let markerLng = baseLng;
                     
-                    // Crea un array fittizio con SOLO i nodi dello stesso gruppo
+                    // SE IL CLUSTER È APERTO, APPLICA OFFSET
+                    // MA PER IL CLUSTER CHIUSO, TUTTI HANNO LE STESSE COORDINATE
                     const key = `${baseLat},${baseLng}`;
                     const groupNodes = groups[key] || [node];
-                    const groupNodesWithCoords = groupNodes.map(n => ({
-                        ...n,
-                        latitude: baseLat,
-                        longitude: baseLng
-                    }));
+                    const groupIndex = groupNodes.indexOf(node);
+                    const totalInGroup = groupNodes.length;
                     
-                    // Usa getUniqueMarkerPosition per calcolare l'offset
-                    const [lat, lng] = getUniqueMarkerPosition(nodeWithRoundedCoords, groupNodesWithCoords);
+                    // SE CI SONO PIÙ DI 1 NODO E IL CLUSTER È APERTO, APPLICA OFFSET
+                    if (totalInGroup > 1) {
+                        // OFFSET PER VEDERE I MARKER DOPO L'APERTURA
+                        const radius = 0.0005 + (totalInGroup - 1) * 0.0002;
+                        const angle = (groupIndex / totalInGroup) * 2 * Math.PI;
+                        markerLat = baseLat + Math.sin(angle) * radius;
+                        markerLng = baseLng + Math.cos(angle) * radius;
+                    }
                     
-                    const marker = L.marker([lat, lng], {
+                    const marker = L.marker([markerLat, markerLng], {
                         icon: createMarkerIcon(node)
                     });
                     
