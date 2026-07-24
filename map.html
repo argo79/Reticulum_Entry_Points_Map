@@ -325,7 +325,7 @@
                 spiderfyOnMaxZoom: true,           // PERMETTE SPIDERFY A TUTTI GLI ZOOM
                 showCoverageOnHover: false,
                 zoomToBoundsOnClick: false,        // NON ZOOMARE MAI
-                spiderfyDistanceMultiplier: 1.8,   // DISTANZA MAGGIORE PER VEDERE MEGLIO
+                spiderfyDistanceMultiplier: 1.5,   // DISTANZA MAGGIORE PER VEDERE MEGLIO
                 iconCreateFunction: createClusterIcon,
                 disableClusteringAtZoom: 25,       // ALTO: I CLUSTER NON SI SCIOLGONO MAI
                 chunkedLoading: true,
@@ -657,20 +657,29 @@
                 }
             });
             
-            const nodesWithOffset = filteredNodes.map(node => {
+            // RAGGRUPPA PER COORDINATE ARROTONDATE
+            const groups = {};
+            filteredNodes.forEach(node => {
                 if (node.geolocated && node.latitude && node.longitude) {
-                    const [lat, lng] = getUniqueMarkerPosition(node, filteredNodes);
-                    return { ...node, _lat: lat, _lng: lng };
+                    // ARROTONDA A 3 DECIMALI (circa 100m)
+                    const lat = Math.round(node.latitude * 1000) / 1000;
+                    const lng = Math.round(node.longitude * 1000) / 1000;
+                    const key = `${lat},${lng}`;
+                    if (!groups[key]) groups[key] = [];
+                    groups[key].push(node);
                 }
-                return node;
             });
             
             const markersToAdd = [];
             markers = [];
             
-            nodesWithOffset.forEach((node, index) => {
-                if (node.geolocated && node._lat && node._lng) {
-                    const marker = L.marker([node._lat, node._lng], {
+            filteredNodes.forEach((node, index) => {
+                if (node.geolocated && node.latitude && node.longitude) {
+                    // USA LE COORDINATE ARROTONDATE PER IL CLUSTERING
+                    const lat = Math.round(node.latitude * 1000) / 1000;
+                    const lng = Math.round(node.longitude * 1000) / 1000;
+                    
+                    const marker = L.marker([lat, lng], {
                         icon: createMarkerIcon(node)
                     });
                     
@@ -682,11 +691,7 @@
                         className: 'custom-popup'
                     });
                     
-                    // ============================================
-                    // === INTERCETTA CLICK SUL MARKER ===
-                    // ============================================
                     marker.on('click', function(e) {
-                        // Se il righello è attivo
                         if (typeof ruler !== 'undefined' && ruler.active) {
                             e.originalEvent.stopPropagation();
                             e.originalEvent.preventDefault();
@@ -698,7 +703,6 @@
                             return;
                         }
                         
-                        // Se il cerchio è attivo
                         if (typeof circleTool !== 'undefined' && circleTool.active && !circleTool.center) {
                             e.originalEvent.stopPropagation();
                             e.originalEvent.preventDefault();
@@ -710,7 +714,6 @@
                             return;
                         }
                         
-                        // Comportamento normale: seleziona nodo
                         selectNode(index);
                     });
                     
@@ -932,19 +935,15 @@
             clusterGroup.clearLayers();
             
             const markersToAdd = [];
-            const nodesWithOffset = filteredNodes.map(node => {
-                if (node.geolocated && node.latitude && node.longitude) {
-                    const [lat, lng] = getUniqueMarkerPosition(node, filteredNodes);
-                    return { ...node, _lat: lat, _lng: lng };
-                }
-                return node;
-            });
-            
             markers = [];
             
-            nodesWithOffset.forEach((node, index) => {
-                if (node.geolocated && node._lat && node._lng) {
-                    const marker = L.marker([node._lat, node._lng], {
+            filteredNodes.forEach((node, index) => {
+                if (node.geolocated && node.latitude && node.longitude) {
+                    // USA LE STESSE COORDINATE ARROTONDATE DI updateMap()
+                    const lat = Math.round(node.latitude * 1000) / 1000;
+                    const lng = Math.round(node.longitude * 1000) / 1000;
+                    
+                    const marker = L.marker([lat, lng], {
                         icon: createMarkerIcon(node)
                     });
                     
@@ -956,9 +955,6 @@
                         className: 'custom-popup'
                     });
                     
-                    // ============================================
-                    // === INTERCETTA CLICK SUL MARKER ===
-                    // ============================================
                     marker.on('click', function(e) {
                         if (typeof ruler !== 'undefined' && ruler.active) {
                             e.originalEvent.stopPropagation();
