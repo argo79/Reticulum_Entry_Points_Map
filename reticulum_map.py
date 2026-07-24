@@ -1359,6 +1359,34 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(json.dumps(local_node).encode())
         
+        elif self.path == '/robots.txt':
+            try:
+                if os.path.exists('robots.txt'):
+                    with open('robots.txt', 'r') as f:
+                        content = f.read()
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'text/plain')
+                    self.end_headers()
+                    self.wfile.write(content.encode())
+                else:
+                    self.send_error(404, "robots.txt not found")
+            except Exception as e:
+                self.send_error(500, str(e))
+
+        elif self.path == '/sitemap.xml':
+            try:
+                if os.path.exists('sitemap.xml'):
+                    with open('sitemap.xml', 'r') as f:
+                        content = f.read()
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/xml')
+                    self.end_headers()
+                    self.wfile.write(content.encode())
+                else:
+                    self.send_error(404, "sitemap.xml not found")
+            except Exception as e:
+                self.send_error(500, str(e))
+        
         elif self.path in ['/', '/index.html', '/map.html']:
             if os.path.exists('map.html'):
                 with open('map.html', 'rb') as f:
