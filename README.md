@@ -674,7 +674,7 @@ Possible future improvements include:
 
 # 📷 Screenshots
 
-## Main Map
+## Node Information
 
 <p align="center">
 <img src="img/REPMap1.jpg" width="800">
@@ -682,7 +682,7 @@ Possible future improvements include:
 
 ---
 
-## Node Information
+## Automatic Geolocation
 
 <p align="center">
 <img src="img/REPMap2.jpg" width="800">
@@ -690,7 +690,7 @@ Possible future improvements include:
 
 ---
 
-## Automatic Geolocation
+## Rnpath command
 
 <p align="center">
 <img src="img/REPMap3.jpg" width="800">
@@ -698,7 +698,7 @@ Possible future improvements include:
 
 ---
 
-## Mobile View
+## Rnprobe command
 
 <p align="center">
 <img src="img/REPMap4.jpg" width="800">
