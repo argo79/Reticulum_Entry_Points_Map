@@ -320,13 +320,13 @@
             }).addTo(map);
 
             clusterGroup = L.markerClusterGroup({
-                maxClusterRadius: 60,
+                maxClusterRadius: 80,
                 spiderfyOnMaxZoom: true,
                 showCoverageOnHover: false,
-                zoomToBoundsOnClick: false,
+                zoomToBoundsOnClick: false,          // CAMBIATO: false per NON zoomare
                 spiderfyDistanceMultiplier: 1.5,
                 iconCreateFunction: createClusterIcon,
-                disableClusteringAtZoom: 15,
+                disableClusteringAtZoom: 18,         // CAMBIATO: da 15 a 18 per mantenere cluster
                 chunkedLoading: true,
                 chunkInterval: 100,
                 chunkDelay: 50
@@ -356,13 +356,35 @@
                 }
             });
 
-            // Quando clicchi su un cluster
+            // Quando clicchi su un cluster - MODIFICATO
             clusterGroup.on('clustermouseclick', function(e) {
-                if (e.layer && e.layer.spiderfy) {
-                    const childCount = e.layer.getAllChildMarkers().length;
-                    if (childCount > 2) {
-                        e.layer.spiderfy();
+                const layer = e.layer;
+                if (layer && layer.spiderfy) {
+                    const childCount = layer.getAllChildMarkers().length;
+                    
+                    // BLOCCA SEMPRE LO ZOOM
+                    e.originalEvent.stopPropagation();
+                    e.originalEvent.preventDefault();
+                    
+                    if (childCount > 1) {
+                        // TOGGLE: se aperto chiudi, se chiuso apri
+                        if (layer._spiderfied) {
+                            layer.unspiderfy();
+                        } else {
+                            layer.spiderfy();
+                        }
                     }
+                }
+            });
+            
+            // AGGIUNTO: chiudi tutti i cluster quando clicchi sulla mappa
+            map.on('click', function() {
+                if (clusterGroup) {
+                    clusterGroup.eachLayer(function(layer) {
+                        if (layer._spiderfied) {
+                            layer.unspiderfy();
+                        }
+                    });
                 }
             });
             
