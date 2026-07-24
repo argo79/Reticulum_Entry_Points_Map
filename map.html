@@ -318,13 +318,12 @@
                 maxZoom: 19
             }).addTo(map);
 
-            // CONFIGURAZIONE CLUSTER
+
+            // CONFIGURAZIONE CLUSTER - SENZA SPIDERFY
             clusterGroup = L.markerClusterGroup({
                 maxClusterRadius: 80,
-                spiderfyOnMaxZoom: true,
                 showCoverageOnHover: false,
                 zoomToBoundsOnClick: false,
-                spiderfyDistanceMultiplier: 1.5,
                 iconCreateFunction: createClusterIcon,
                 disableClusteringAtZoom: 15,
                 chunkedLoading: true,
@@ -332,7 +331,7 @@
                 chunkDelay: 50
             });
 
-            // QUANDO CLICCHI SU UN CLUSTER -> ZOOM SUL CLUSTER
+            // CLICK SUL CLUSTER -> ZOOM
             clusterGroup.on('clustermouseclick', function(e) {
                 const layer = e.layer;
                 const childCount = layer.getAllChildMarkers().length;
@@ -343,26 +342,15 @@
                 if (childCount > 1) {
                     const bounds = layer.getBounds();
                     if (bounds.isValid()) {
-                        map.fitBounds(bounds, {
-                            padding: [80, 80],
+                        map.flyToBounds(bounds, {
+                            padding: [100, 100],
                             maxZoom: 18,
-                            duration: 0.5
+                            duration: 0.8
                         });
                     }
                 }
             });
 
-            // CHIUDI TUTTI I CLUSTER QUANDO CLICCHI SULLA MAPPA
-            map.on('click', function() {
-                if (clusterGroup) {
-                    clusterGroup.eachLayer(function(layer) {
-                        if (layer._spiderfied) {
-                            layer.unspiderfy();
-                        }
-                    });
-                }
-            });
-            
             map.addLayer(clusterGroup);
             
             initRuler(map, 'ruler-btn');
