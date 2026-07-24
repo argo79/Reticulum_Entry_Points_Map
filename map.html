@@ -321,13 +321,13 @@
 
             // CONFIGURAZIONE CLUSTER - MODIFICATA
             clusterGroup = L.markerClusterGroup({
-                maxClusterRadius: 20,
+                maxClusterRadius: 80,
                 spiderfyOnMaxZoom: true,           // PERMETTE SPIDERFY A TUTTI GLI ZOOM
                 showCoverageOnHover: false,
                 zoomToBoundsOnClick: false,        // NON ZOOMARE MAI
                 spiderfyDistanceMultiplier: 1.5,   // DISTANZA MAGGIORE PER VEDERE MEGLIO
                 iconCreateFunction: createClusterIcon,
-                disableClusteringAtZoom: 15,       // ALTO: I CLUSTER NON SI SCIOLGONO MAI
+                disableClusteringAtZoom: 10,       // ALTO: I CLUSTER NON SI SCIOLGONO MAI
                 chunkedLoading: true,
                 chunkInterval: 100,
                 chunkDelay: 50,
