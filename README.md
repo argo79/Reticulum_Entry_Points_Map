@@ -706,7 +706,6 @@ Possible future improvements include:
 
 ---
 
-
 <h3>☕ Support Development</h3>
 
 <p>
@@ -730,10 +729,11 @@ Every contribution, big or small, helps keep the project alive and supports futu
 
 </div>
 
+---
+
 <p align="center">
 <i>🙏 Thank you for your support! Every donation motivates me to continue improving the project and adding new features.</i>
 </p>
-
 
 <div align="center">
 
