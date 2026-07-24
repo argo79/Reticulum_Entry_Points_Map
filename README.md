@@ -706,6 +706,22 @@ Possible future improvements include:
 
 ---
 
+## Circle Range
+
+<p align="center">
+<img src="img/REPMap5.jpg" width="800">
+</p>
+
+---
+
+## Linear Distance
+
+<p align="center">
+<img src="img/REPMap6.jpg" width="800">
+</p>
+
+---
+
 <h3>☕ Support Development</h3>
 
 <p>
