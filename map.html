@@ -320,13 +320,13 @@
             }).addTo(map);
 
             clusterGroup = L.markerClusterGroup({
-                maxClusterRadius: 75,
+                maxClusterRadius: 60,
                 spiderfyOnMaxZoom: true,
                 showCoverageOnHover: false,
                 zoomToBoundsOnClick: false,
                 spiderfyDistanceMultiplier: 1.5,
                 iconCreateFunction: createClusterIcon,
-                disableClusteringAtZoom: 18,
+                disableClusteringAtZoom: 12,
                 chunkedLoading: true,
                 chunkInterval: 100,
                 chunkDelay: 50
