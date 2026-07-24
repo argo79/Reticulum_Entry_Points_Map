@@ -1,10 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🌐 Reticulum Entry Points Map</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- ============================================ -->
+    <!-- SEO META TAG                                -->
+    <!-- ============================================ -->
+    <title>🌐 Reticulum Entry Points Map - Mappa interattiva della rete Reticulum</title>
+    
+    <meta name="description" content="Mappa interattiva dei nodi della rete Reticulum. Visualizza entry points, geolocalizzazione automatica e stato in tempo reale. Scopri la rete decentralizzata Reticulum.">
+    <meta name="keywords" content="Reticulum, RNS, entry points, network map, reticulum network, decentralized network, mesh network, Reticulum nodes, reticulum map, peer-to-peer">
+    <meta name="author" content="arg0net">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Italian">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://repmap.arg0net.org">
+    <meta property="og:title" content="Reticulum Entry Points Map - Mappa interattiva della rete Reticulum">
+    <meta property="og:description" content="Mappa interattiva dei nodi della rete Reticulum. Visualizza entry points, geolocalizzazione automatica e stato in tempo reale.">
+    <meta property="og:image" content="https://il-tuo-dominio.com/img/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Reticulum Entry Points Map - Mappa interattiva della rete Reticulum">
+    <meta name="twitter:description" content="Mappa interattiva dei nodi della rete Reticulum. Visualizza entry points, geolocalizzazione automatica e stato in tempo reale.">
+    <meta name="twitter:image" content="https://il-tuo-dominio.com/img/og-image.jpg">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://repmap.arg0net.org">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Reticulum Entry Points Map",
+      "description": "Mappa interattiva dei nodi della rete Reticulum con geolocalizzazione automatica",
+      "applicationCategory": "Network Tool",
+      "operatingSystem": "Linux, Web",
+      "author": {
+        "@type": "Person",
+        "name": "argo79",
+        "url": "https://github.com/argo79"
+      },
+      "url": "https://arg0net.org",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    }
+    </script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
     
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -19,865 +73,6 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary: #3b82f6;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --purple: #8b5cf6;
-            --gray-50: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-400: #94a3b8;
-            --gray-500: #64748b;
-            --gray-600: #475569;
-            --gray-700: #334155;
-            --gray-800: #1e293b;
-            --gray-900: #0f172a;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--gray-900);
-            color: var(--gray-200);
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .header {
-            background: var(--gray-800);
-            padding: 1rem 2rem;
-            border-bottom: 1px solid var(--gray-700);
-            text-align: center;
-            position: relative;
-            flex-shrink: 0;
-        }
-        
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .app-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stats-row {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 0.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-value {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--primary);
-        }
-        
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--gray-400);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .main-container {
-            display: flex;
-            flex: 1;
-            min-height: 0;
-        }
-        
-        .map-container {
-            flex: 1;
-            position: relative;
-        }
-        
-        #map {
-            width: 100%;
-            height: 100%;
-            background: var(--gray-800);
-        }
-        
-        .sidebar {
-            width: 420px;
-            background: var(--gray-800);
-            border-left: 1px solid var(--gray-700);
-            display: flex;
-            flex-direction: column;
-            flex-shrink: 0;
-        }
-        
-        .filters-section {
-            padding: 1rem;
-            border-bottom: 1px solid var(--gray-700);
-            background: var(--gray-800);
-            flex-shrink: 0;
-        }
-        
-        .filter-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .filter-tab {
-            padding: 0.5rem 1rem;
-            background: var(--gray-700);
-            border: none;
-            border-radius: 20px;
-            color: var(--gray-300);
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .filter-tab:hover {
-            background: var(--gray-600);
-        }
-        
-        .filter-tab.active {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .search-box {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            background: var(--gray-900);
-            border: 1px solid var(--gray-700);
-            border-radius: 8px;
-            color: var(--gray-200);
-            font-size: 0.9rem;
-        }
-        
-        .search-box:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
-        }
-        
-        .nodes-list {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1rem;
-        }
-        
-        .node-card {
-            background: var(--gray-900);
-            border: 1px solid var(--gray-700);
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 0.75rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .node-card:hover {
-            background: var(--gray-800);
-            border-color: var(--gray-600);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-        
-        .node-card.active {
-            border-color: var(--primary);
-            background: rgba(59, 130, 246, 0.1);
-        }
-        
-        .node-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.75rem;
-        }
-        
-        .node-name {
-            font-weight: 600;
-            color: var(--gray-100);
-            font-size: 0.95rem;
-            flex: 1;
-        }
-        
-        .node-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .badge {
-            padding: 0.25rem 0.5rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        
-        .badge-hops {
-            background: rgba(139, 92, 246, 0.2);
-            color: var(--purple);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-        }
-        
-        .badge-online {
-            background: rgba(34, 197, 94, 0.2);
-            color: var(--success);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-        }
-        
-        .badge-offline {
-            background: rgba(239, 68, 68, 0.2);
-            color: var(--danger);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-        }
-        
-        .badge-unmapped {
-            background: rgba(245, 158, 11, 0.2);
-            color: var(--warning);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-        
-        .node-details {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.5rem;
-            font-size: 0.8rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .detail-item {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .detail-label {
-            color: var(--gray-400);
-            font-size: 0.7rem;
-            margin-bottom: 0.25rem;
-        }
-        
-        .detail-value {
-            color: var(--gray-200);
-            font-weight: 500;
-            word-break: break-all;
-        }
-        
-        .transport-id {
-            font-family: 'Monaco', 'Consolas', monospace;
-            font-size: 0.7rem;
-            color: var(--gray-400);
-            margin-top: 0.5rem;
-            word-break: break-all;
-        }
-        
-        .map-controls {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .map-btn {
-            width: 40px;
-            height: 40px;
-            background: var(--gray-800);
-            border: 1px solid var(--gray-700);
-            border-radius: 6px;
-            color: var(--gray-300);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            transition: all 0.2s;
-        }
-        
-        .map-btn:hover {
-            background: var(--gray-700);
-            transform: scale(1.05);
-        }
-        
-        .legend {
-            position: absolute;
-            bottom: 1rem;
-            left: 1rem;
-            background: rgba(30, 41, 59, 0.95);
-            border: 1px solid var(--gray-700);
-            border-radius: 8px;
-            padding: 1rem;
-            color: var(--gray-200);
-            backdrop-filter: blur(10px);
-            max-width: 250px;
-            z-index: 1000 !important;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        #map {
-            z-index: 1;
-        }
-        
-        .legend-title {
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--gray-100);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .legend-color {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 2px solid white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.65rem;
-            font-weight: bold;
-            color: white;
-        }
-        
-        .custom-popup {
-            background: var(--gray-800);
-            border: 1px solid var(--gray-700);
-            border-radius: 8px;
-            overflow: hidden;
-            max-width: 500px !important;
-        }
-        
-        .popup-header {
-            padding: 1.2rem;
-            background: var(--gray-900);
-            border-bottom: 1px solid var(--gray-700);
-        }
-        
-        .popup-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .popup-status {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            font-size: 0.85rem;
-        }
-        
-        .status-badge {
-            padding: 0.3rem 0.6rem;
-            border-radius: 6px;
-            font-weight: 600;
-        }
-        
-        .popup-content {
-            padding: 1.2rem;
-            max-height: 500px;
-            overflow-y: auto;
-        }
-        
-        .popup-section {
-            margin-bottom: 1.5rem;
-        }
-        
-        .leaflet-popup-content-wrapper {
-            background: transparent !important;
-            box-shadow: none !important;
-            border-radius: 0 !important;
-            border: none !important;
-            padding: 0 !important;
-        }
-        
-        .leaflet-popup-tip-container {
-            display: none !important;
-        }
-        
-        .leaflet-popup-close-button {
-            display: none !important;
-        }
-        
-        .leaflet-popup-content {
-            margin: 0 !important;
-            line-height: 1.4 !important;
-        }
-        
-        .leaflet-popup {
-            bottom: 20px !important;
-        }
-        
-        .section-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--gray-100);
-            margin-bottom: 0.75rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--gray-700);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-        
-        .info-item {
-            margin-bottom: 0.75rem;
-        }
-        
-        .info-label {
-            color: var(--gray-400);
-            font-size: 0.8rem;
-            margin-bottom: 0.25rem;
-        }
-        
-        .info-value {
-            color: var(--gray-200);
-            font-weight: 500;
-            word-break: break-all;
-            font-family: 'Monaco', 'Consolas', monospace;
-            font-size: 0.9rem;
-        }
-        
-        .full-width {
-            grid-column: 1 / -1;
-        }
-        
-        .rnid-buttons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-        
-        .rnid-btn {
-            background: var(--gray-700);
-            border: 1px solid var(--gray-600);
-            border-radius: 6px;
-            color: var(--gray-200);
-            padding: 0.5rem;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.3rem;
-            text-align: center;
-        }
-        
-        .rnid-btn:hover {
-            background: var(--gray-600);
-            transform: translateY(-1px);
-        }
-        
-        .rnid-btn.probe {
-            border-color: var(--warning);
-            color: var(--warning);
-        }
-        
-        .rnid-btn.path {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-        
-        .rnid-btn.lxmf {
-            border-color: var(--success);
-            color: var(--success);
-        }
-        
-        .rnid-btn.call {
-            border-color: var(--warning);
-            color: var(--warning);
-        }
-        
-        .rnid-btn.nomad {
-            border-color: var(--purple);
-            color: var(--purple);
-        }
-        
-        .rnid-btn.ping {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-        
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            backdrop-filter: blur(5px);
-        }
-        
-        .modal {
-            background: var(--gray-800);
-            border: 1px solid var(--gray-700);
-            border-radius: 12px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 80vh;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-        
-        .modal-header {
-            padding: 1.5rem;
-            background: var(--gray-900);
-            border-bottom: 1px solid var(--gray-700);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .modal-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        .modal-close {
-            background: transparent;
-            border: none;
-            color: var(--gray-400);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 4px;
-        }
-        
-        .modal-close:hover {
-            background: var(--gray-700);
-            color: var(--gray-200);
-        }
-        
-        .modal-body {
-            padding: 1.5rem;
-            max-height: 60vh;
-            overflow-y: auto;
-        }
-        
-        .modal-output {
-            background: var(--gray-900);
-            border: 1px solid var(--gray-700);
-            border-radius: 8px;
-            padding: 1rem;
-            font-family: 'Monaco', 'Consolas', monospace;
-            font-size: 12px;
-            line-height: 1.3;
-            color: #e2e8f0;
-            white-space: pre-wrap;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        
-        .modal-loading {
-            text-align: center;
-            padding: 2rem;
-            color: var(--gray-400);
-        }
-        
-        .modal-error {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            border-radius: 8px;
-            padding: 1rem;
-            color: #fca5a5;
-            margin-top: 1rem;
-        }
-        
-        .modal-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            font-size: 0.85rem;
-            color: var(--gray-400);
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .hash-display {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 6px;
-            padding: 0.75rem;
-            margin: 1rem 0;
-            font-family: 'Monaco', 'Consolas', monospace;
-            font-size: 0.85rem;
-            word-break: break-all;
-            color: #93c5fd;
-        }
-        
-        .hash-actions {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .hash-btn {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s;
-        }
-        
-        .hash-btn.copy {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .hash-btn.rnpath {
-            background: var(--warning);
-            color: white;
-        }
-        
-        .hash-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
-        
-        /* FOOTER - stile come le altre pagine */
-        .app-footer {
-            margin-top: 0;
-            padding: 10px 15px;
-            border-top: 1px solid #333;
-            text-align: center;
-            font-size: 10px;
-            color: #555;
-            background: #0a0a0a;
-            width: 100%;
-            flex-shrink: 0;
-        }
-        .app-footer a {
-            color: #4c4;
-            text-decoration: none;
-        }
-        .app-footer a:hover {
-            color: #6f6;
-        }
-        .app-footer code {
-            background: #111;
-            padding: 1px 6px;
-            border-radius: 2px;
-            font-size: 9px;
-            color: #4c4;
-            font-family: monospace;
-        }
-        
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-        
-        @media (max-width: 1024px) {
-            .sidebar {
-                width: 380px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .main-container {
-                flex-direction: column;
-            }
-            
-            .map-container {
-                height: 60vh;
-                flex: 0 0 60vh;
-            }
-            
-            .sidebar {
-                width: 100%;
-                height: 40vh;
-                flex: 0 0 40vh;
-                border-left: none;
-                border-top: 1px solid var(--gray-700);
-            }
-            
-            .app-title {
-                font-size: 1.2rem;
-            }
-            
-            .stats-row {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-            
-            .stat {
-                min-width: 45%;
-            }
-            
-            .filter-tabs {
-                overflow-x: auto;
-                white-space: nowrap;
-                padding-bottom: 5px;
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            .filter-tab {
-                flex-shrink: 0;
-            }
-            
-            .node-card {
-                touch-action: pan-y;
-            }
-            
-            .rnid-buttons {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.3rem;
-            }
-            
-            .map-controls {
-                top: 0.5rem;
-                right: 0.5rem;
-            }
-            
-            .map-btn {
-                width: 36px;
-                height: 36px;
-                font-size: 0.9rem;
-            }
-            
-            .legend {
-                bottom: 0.5rem;
-                left: 0.5rem;
-                max-width: 200px;
-                padding: 0.75rem;
-                font-size: 0.85rem;
-            }
-            
-            .custom-popup {
-                max-width: 95vw !important;
-            }
-            
-            .popup-content {
-                max-height: 60vh;
-                overflow-y: auto;
-            }
-            
-            .modal {
-                width: 95%;
-                max-height: 90vh;
-            }
-            
-            .modal-body {
-                max-height: 70vh;
-            }
-            
-            .rnid-btn {
-                padding: 0.4rem 0.3rem;
-                font-size: 0.65rem;
-                min-height: 36px;
-            }
-            
-            .hash-btn {
-                padding: 0.6rem 0.8rem;
-            }
-            
-            .info-grid {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .map-container {
-                height: 50vh;
-                flex: 0 0 50vh;
-            }
-            
-            .sidebar {
-                height: 50vh;
-                flex: 0 0 50vh;
-            }
-            
-            .rnid-buttons {
-                grid-template-columns: 1fr;
-            }
-            
-            .stat {
-                min-width: 22%;
-            }
-            
-            .stat-value {
-                font-size: 1rem;
-            }
-            
-            .stat-label {
-                font-size: 0.7rem;
-            }
-        }
-        
-        button {
-            user-select: none;
-            -webkit-user-select: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        .rnid-btn:active,
-        .node-card:active,
-        .map-btn:active {
-            transform: scale(0.98);
-            opacity: 0.8;
-        }
-        
-        * {
-            -webkit-touch-callout: none;
-            -webkit-text-size-adjust: none;
-        }
-    </style>
 </head>
 <body>
     <header class="header">
@@ -1003,9 +198,9 @@
         <div style="margin-bottom: 4px;">
             <span style="color: #666;">argo79</span>
             <span style="color: #333; margin: 0 6px;">·</span>
-            <a href="https://github.com/argo79/Reticulum_Entry_Points_Map" target="_blank">GitHub</a>
+            <a href="https://github.com/argo79/RNS-Manager" target="_blank">GitHub</a>
             <span style="color: #333; margin: 0 6px;">·</span>
-            <span style="color: #444;">v1.1.0</span>
+            <span style="color: #444;">v1.0.0</span>
             <span style="color: #333; margin: 0 6px;">·</span>
             <span style="color: #444;">Licenza MIT</span>
         </div>
@@ -1113,7 +308,7 @@
                 zoomAnimation: true
             }).setView([20, 0], 2);
             
-            // === CREA UN PANE PER LE ETICHETTE SOPRA I MARKER ===
+            // === CREA IL PANE PER LE ETICHETTE ===
             map.createPane('labels');
             map.getPane('labels').style.zIndex = 650;
             map.getPane('labels').style.pointerEvents = 'none';
@@ -1131,7 +326,7 @@
                 zoomToBoundsOnClick: false,
                 spiderfyDistanceMultiplier: 1.5,
                 iconCreateFunction: createClusterIcon,
-                disableClusteringAtZoom: 15,
+                disableClusteringAtZoom: 18,
                 chunkedLoading: true,
                 chunkInterval: 100,
                 chunkDelay: 50
