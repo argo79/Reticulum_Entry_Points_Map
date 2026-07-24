@@ -327,7 +327,7 @@
                 zoomToBoundsOnClick: false,        // NON ZOOMARE MAI
                 spiderfyDistanceMultiplier: 1.5,   // DISTANZA MAGGIORE PER VEDERE MEGLIO
                 iconCreateFunction: createClusterIcon,
-                disableClusteringAtZoom: 25,       // ALTO: I CLUSTER NON SI SCIOLGONO MAI
+                disableClusteringAtZoom: 15,       // ALTO: I CLUSTER NON SI SCIOLGONO MAI
                 chunkedLoading: true,
                 chunkInterval: 100,
                 chunkDelay: 50,
@@ -358,32 +358,26 @@
                 }
             });
 
-            // FORZA L'APERTURA DI TUTTI I CLUSTER
+            // AGGIUNGI QUESTO PER DEBUG
             clusterGroup.on('clustermouseclick', function(e) {
                 const layer = e.layer;
+                console.log('CLUSTER CLICKED!', layer);
+                console.log('Child count:', layer.getAllChildMarkers().length);
+                console.log('Is spiderfied?', layer._spiderfied);
+                
                 if (layer && layer.spiderfy) {
                     const childCount = layer.getAllChildMarkers().length;
-                    
-                    e.originalEvent.stopPropagation();
-                    e.originalEvent.preventDefault();
-                    
                     if (childCount > 1) {
-                        // FORZA L'APERTURA
                         try {
                             if (layer._spiderfied) {
+                                console.log('UNSPIDERFY');
                                 layer.unspiderfy();
                             } else {
+                                console.log('SPIDERFY');
                                 layer.spiderfy();
                             }
                         } catch(err) {
-                            // SE SPIDERFY FALLISCE, USA FITBOUNDS
-                            const bounds = layer.getBounds();
-                            if (bounds.isValid()) {
-                                map.fitBounds(bounds, {
-                                    padding: [50, 50],
-                                    maxZoom: 18
-                                });
-                            }
+                            console.error('ERROR:', err);
                         }
                     }
                 }
@@ -666,50 +660,14 @@
                 }
             });
             
-            // RAGGRUPPA I NODI PER COORDINATE ARROTONDATE
-            const groups = {};
-            filteredNodes.forEach(node => {
-                if (node.geolocated && node.latitude && node.longitude) {
-                    // ARROTONDA A 4 DECIMALI (circa 10 metri)
-                    const lat = Math.round(node.latitude * 10000) / 10000;
-                    const lng = Math.round(node.longitude * 10000) / 10000;
-                    const key = `${lat},${lng}`;
-                    if (!groups[key]) groups[key] = [];
-                    groups[key].push(node);
-                }
-            });
-            
             const markersToAdd = [];
             markers = [];
             
             filteredNodes.forEach((node, index) => {
                 if (node.geolocated && node.latitude && node.longitude) {
-                    // USA LE COORDINATE ARROTONDATE PER TUTTI I MARKER
-                    const baseLat = Math.round(node.latitude * 10000) / 10000;
-                    const baseLng = Math.round(node.longitude * 10000) / 10000;
+                    const [lat, lng] = getUniqueMarkerPosition(node, filteredNodes);
                     
-                    // TUTTI I MARKER CON LA STESSA COORDINATA ARROTONDATA
-                    // AVRANNO LA STESSA IDENTICA COORDINATA
-                    let markerLat = baseLat;
-                    let markerLng = baseLng;
-                    
-                    // SE IL CLUSTER È APERTO, APPLICA OFFSET
-                    // MA PER IL CLUSTER CHIUSO, TUTTI HANNO LE STESSE COORDINATE
-                    const key = `${baseLat},${baseLng}`;
-                    const groupNodes = groups[key] || [node];
-                    const groupIndex = groupNodes.indexOf(node);
-                    const totalInGroup = groupNodes.length;
-                    
-                    // SE CI SONO PIÙ DI 1 NODO E IL CLUSTER È APERTO, APPLICA OFFSET
-                    if (totalInGroup > 1) {
-                        // OFFSET PER VEDERE I MARKER DOPO L'APERTURA
-                        const radius = 0.0005 + (totalInGroup - 1) * 0.0002;
-                        const angle = (groupIndex / totalInGroup) * 2 * Math.PI;
-                        markerLat = baseLat + Math.sin(angle) * radius;
-                        markerLng = baseLng + Math.cos(angle) * radius;
-                    }
-                    
-                    const marker = L.marker([markerLat, markerLng], {
+                    const marker = L.marker([lat, lng], {
                         icon: createMarkerIcon(node)
                     });
                     
