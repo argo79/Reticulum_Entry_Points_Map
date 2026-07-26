@@ -668,7 +668,7 @@
     "lng": 174.9089,
     "desc": "Pukekohe, New Zealand",
     "source": "ip-api.com",
-    "timestamp": "2026-06-24T07:05:08.003351",
+    "timestamp": "2026-07-24T07:21:33.733470",
     "corrected": false
   },
   "schttopup.com|rns.schttopup.com": {
@@ -852,7 +852,7 @@
     "lng": -37.6187,
     "desc": "Moscow, Russia [CORRECTED: 37.62\u2192-37.62]",
     "source": "ip-api.com",
-    "timestamp": "2026-06-25T09:08:16.181107",
+    "timestamp": "2026-07-25T09:16:25.174751",
     "corrected": true
   },
   "Discovered BackboneInterface|163.192.101.254": {
@@ -1260,7 +1260,7 @@
     "lng": -122.1865,
     "desc": "Bonney Lake, United States",
     "source": "ip-api.com",
-    "timestamp": "2026-06-25T10:38:29.096360",
+    "timestamp": "2026-07-25T10:46:34.095879",
     "corrected": false
   },
   "paltepuk-paltepuk-doma I2P Public Entrypoint|wunvyc6gqeur7wttbzrakidi34w6koneulyzml4mmayfmdda46bq": {
@@ -1276,7 +1276,7 @@
     "lng": 3.436,
     "desc": "From node name: Uk [CORRECTED: -3.44\u21923.44]",
     "source": "name_match_low_confidence",
-    "timestamp": "2026-06-26T07:11:02.576717",
+    "timestamp": "2026-07-26T07:18:46.219077",
     "corrected": true
   },
   "Carmelo FR Entrypoint|reticulum.carmelo.fr": {
@@ -1502,5 +1502,13 @@
     "source": "name_match_low_confidence",
     "timestamp": "2026-07-23T19:02:38.638959",
     "corrected": false
+  },
+  "resilum|91.188.215.244": {
+    "lat": 55.7796,
+    "lng": -37.6034,
+    "desc": "Moscow, Russia [CORRECTED: 37.60\u2192-37.60]",
+    "source": "ip-api.com",
+    "timestamp": "2026-07-23T21:02:45.917533",
+    "corrected": true
   }
 }

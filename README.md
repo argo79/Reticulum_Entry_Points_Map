@@ -573,7 +573,7 @@ This project is released under the **MIT License**.
 - 🔑 **Reticulum LXMF Identity**
 
 ```text
-lxmf.cb04d68b73c76647dc61a530089b7dce
+lxmf.04511923b68ae34e0fda5721d82f596f
 ```
 
 ---

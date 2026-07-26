@@ -320,38 +320,64 @@
 
 
             // CONFIGURAZIONE CLUSTER - SENZA SPIDERFY
+            // ============================================
+            // === CONFIGURAZIONE CLUSTER ===
+            // ============================================
+
             clusterGroup = L.markerClusterGroup({
                 maxClusterRadius: 80,
+                spiderfyOnMaxZoom: true,           // PERMETTE L'APERTURA A VENTAGLIO
                 showCoverageOnHover: false,
-                zoomToBoundsOnClick: false,
+                zoomToBoundsOnClick: false,        // NON ZOOMARE
+                spiderfyDistanceMultiplier: 2.0,   // DISTANZA PER VEDERE LE ETICHETTE
                 iconCreateFunction: createClusterIcon,
-                disableClusteringAtZoom: 20,
+                disableClusteringAtZoom: 18,       // NON SCIOGLIERE I CLUSTER
                 chunkedLoading: true,
                 chunkInterval: 100,
-                chunkDelay: 50
+                chunkDelay: 50,
+                spiderfyMaxCount: 999              // PERMETTE CLUSTER GRANDI
             });
 
-            // CLICK SUL CLUSTER -> ZOOM
+            // ============================================
+            // === CLICK SUL CLUSTER - APRE A VENTAGLIO ===
+            // ============================================
+
             clusterGroup.on('clustermouseclick', function(e) {
                 const layer = e.layer;
-                const childCount = layer.getAllChildMarkers().length;
-                
-                e.originalEvent.stopPropagation();
-                e.originalEvent.preventDefault();
-                
-                if (childCount > 1) {
-                    const bounds = layer.getBounds();
-                    if (bounds.isValid()) {
-                        map.flyToBounds(bounds, {
-                            padding: [100, 100],
-                            maxZoom: 15,
-                            duration: 0.8
-                        });
+                if (layer && layer.spiderfy) {
+                    const childCount = layer.getAllChildMarkers().length;
+                    
+                    // BLOCCA LO ZOOM
+                    e.originalEvent.stopPropagation();
+                    e.originalEvent.preventDefault();
+                    
+                    if (childCount > 1) {
+                        // TOGGLE: APRI O CHIUDI
+                        if (layer._spiderfied) {
+                            layer.unspiderfy();
+                        } else {
+                            layer.spiderfy();
+                        }
                     }
                 }
             });
 
+            // ============================================
+            // === CHIUDI TUTTI I CLUSTER CLICCANDO SULLA MAPPA ===
+            // ============================================
+
+            map.on('click', function() {
+                if (clusterGroup) {
+                    clusterGroup.eachLayer(function(layer) {
+                        if (layer._spiderfied) {
+                            layer.unspiderfy();
+                        }
+                    });
+                }
+            });
+
             map.addLayer(clusterGroup);
+            
             
             initRuler(map, 'ruler-btn');
             initCircleTool(map, 'circle-btn');
@@ -378,6 +404,14 @@
                 showLoading(true);
                 const response = await fetch('/data');
                 allNodes = await response.json();
+                
+                // DEBUG: Mostra i nodi ricevuti
+                console.log('Nodi ricevuti:', allNodes.length);
+                console.log('Primo nodo:', allNodes[0]);
+                console.log('Nodi geolocalizzati:', allNodes.filter(n => n.geolocated).length);
+                console.log('Nodi con coordinate valide:', allNodes.filter(n => 
+                    n.geolocated && n.latitude && n.longitude && n.latitude !== 0 && n.longitude !== 0
+                ).length);
                 
                 allNodes.forEach(node => node._visible = true);
                 
@@ -606,8 +640,9 @@
                 }
             });
             
-            // PASSO 1: RAGGRUPPA I NODI PER COORDINATE ARROTONDATE
-            // QUESTO DECIDE QUALI NODI VANNO NELLO STESSO CLUSTER
+            // ============================================
+            // RAGGRUPPA I NODI PER COORDINATE ARROTONDATE
+            // ============================================
             const groups = {};
             filteredNodes.forEach(node => {
                 if (node.geolocated && node.latitude && node.longitude) {
@@ -625,7 +660,7 @@
             
             filteredNodes.forEach((node, index) => {
                 if (node.geolocated && node.latitude && node.longitude) {
-                    // PASSO 2: TROVA IL GRUPPO DI APPARTENENZA
+                    // TROVA IL GRUPPO
                     const baseLat = Math.round(node.latitude * 1000) / 1000;
                     const baseLng = Math.round(node.longitude * 1000) / 1000;
                     const key = `${baseLat},${baseLng}`;
@@ -633,14 +668,12 @@
                     const groupIndex = groupNodes.indexOf(node);
                     const totalInGroup = groupNodes.length;
                     
-                    // PASSO 3: USA LA STESSA COORDINATA PER TUTTI I NODI DEL GRUPPO
-                    // QUESTA È LA COORDINATA FALSA CONDIVISA
+                    // USA LA STESSA COORDINATA PER TUTTI I NODI DEL GRUPPO
                     let markerLat = baseLat;
                     let markerLng = baseLng;
                     
-                    // PASSO 4: APPLICA UN PICCOLO OFFSET PER EVITARE SOVRAPPOSIZIONE
-                    // MA SOLO SE IL CLUSTER È STATO APERTO (spiderfy)
-                    // PER ORA USIAMO UN OFFSET MINIMO PER DISTINGUERLI
+                    // SE IL GRUPPO HA PIÙ DI 1 NODO, APPLICA UN PICCOLO OFFSET
+                    // PER VISUALIZZARE I MARKER QUANDO IL CLUSTER SI APRE
                     if (totalInGroup > 1) {
                         // OFFSET MINIMO (0.0001 gradi = circa 10 metri)
                         // ABBASTANZA PICCOLO PER ESSERE CONSIDERATO STESSO PUNTO
