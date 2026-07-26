@@ -127,6 +127,9 @@
                 <button class="map-btn" onclick="toggleLegend()" title="Toggle Legend">
                     <i class="fas fa-layer-group"></i>
                 </button>
+                <button class="map-btn" id="toggle-sidebar-btn" onclick="toggleSidebar()" title="Toggle Sidebar">
+                    <i class="fas fa-columns"></i>
+                </button>
                 <button class="map-btn" id="ruler-btn" title="Righello" style="border-color: #f59e0b;">
                     <i class="fas fa-ruler-combined"></i>
                 </button>
@@ -358,7 +361,7 @@
             // Layer 9: OpenTopoMap
             const openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors, SRTM',
-                maxZoom: 17
+                maxZoom: 19
             });
             
             // Layer 10: CartoDB Voyager
@@ -2741,6 +2744,47 @@
                 closeModal();
             }
         });
+
+
+        // ============================================
+        // === TOGGLE SIDEBAR ===
+        // ============================================
+
+        let sidebarVisible = true;
+
+        // Imposta icona iniziale all'avvio
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('toggle-sidebar-btn');
+            if (btn && sidebarVisible) {
+                btn.innerHTML = '<i class="fas fa-columns"></i>';
+                btn.style.borderColor = 'var(--primary)';
+            }
+        });
+
+        function toggleSidebar() {
+            sidebarVisible = !sidebarVisible;
+            const sidebar = document.querySelector('.sidebar');
+            const btn = document.getElementById('toggle-sidebar-btn');
+            
+            if (sidebarVisible) {
+                sidebar.style.display = 'flex';
+                btn.style.borderColor = 'var(--primary)';
+                btn.style.background = 'var(--gray-800)';
+                btn.innerHTML = '<i class="fas fa-columns"></i>';
+                showNotification('Sidebar visibile', 'info');
+            } else {
+                sidebar.style.display = 'none';
+                btn.style.borderColor = '#f59e0b';
+                btn.style.background = 'rgba(245, 158, 11, 0.2)';
+                btn.innerHTML = '<i class="fas fa-window-maximize"></i>';
+                showNotification('Sidebar nascosta', 'info');
+            }
+            
+            setTimeout(function() {
+                if (map) map.invalidateSize();
+            }, 300);
+        }
+        
     </script>
 </body>
 </html>

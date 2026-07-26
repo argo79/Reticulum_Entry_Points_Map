@@ -919,3 +919,8 @@ button {
         }
     }
 }
+
+/* Pulsante sidebar */
+#toggle-sidebar-btn {
+    border-color: var(--primary);
+}
