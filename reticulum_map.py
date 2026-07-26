@@ -12,7 +12,7 @@ import re
 import pickle
 import hashlib
 from collections import defaultdict
-import signal  # <-- AGGIUNTO
+import signal
 
 PORT = 8484
 REFRESH_MINUTES = 30
@@ -1010,6 +1010,68 @@ def auto_refresh():
 
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
+        # ============================================
+        # FILE STATICI
+        # ============================================
+        
+        # CSS
+        if self.path.endswith('.css'):
+            try:
+                if os.path.exists(self.path[1:]):
+                    with open(self.path[1:], 'rb') as f:
+                        content = f.read()
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'text/css')
+                    self.send_header('Cache-Control', 'no-cache')
+                    self.end_headers()
+                    self.wfile.write(content)
+                else:
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'text/css')
+                    self.end_headers()
+                    self.wfile.write(b'/* Empty CSS */')
+            except:
+                self.send_response(200)
+                self.send_header('Content-Type', 'text/css')
+                self.end_headers()
+                self.wfile.write(b'/* Empty CSS */')
+            return
+        
+        # JS
+        if self.path.endswith('.js'):
+            try:
+                if os.path.exists(self.path[1:]):
+                    with open(self.path[1:], 'rb') as f:
+                        content = f.read()
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/javascript')
+                    self.send_header('Cache-Control', 'no-cache')
+                    self.end_headers()
+                    self.wfile.write(content)
+                else:
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/javascript')
+                    self.end_headers()
+                    self.wfile.write(b'// Empty JS')
+            except:
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/javascript')
+                self.end_headers()
+                self.wfile.write(b'// Empty JS')
+            return
+        
+        # Favicon
+        if self.path == '/favicon.ico':
+            self.send_response(200)
+            self.send_header('Content-Type', 'image/x-icon')
+            self.end_headers()
+            self.wfile.write(b'')
+            return
+        
+        # ============================================
+        # API ENDPOINTS
+        # ============================================
+        
         if self.path.startswith('/get_hash/'):
             try:
                 parts = self.path.split('/')
@@ -1055,8 +1117,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({
                     'error': f'Errore interno: {str(e)}'
                 }).encode())
+            return
         
-        elif self.path.startswith('/rnpath_hash/'):
+        if self.path.startswith('/rnpath_hash/'):
             try:
                 parts = self.path.split('/')
                 if len(parts) >= 3:
@@ -1082,8 +1145,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({
                     'error': f'Errore interno: {str(e)}'
                 }).encode())
+            return
         
-        elif self.path.startswith('/rnprobe_hash/'):
+        if self.path.startswith('/rnprobe_hash/'):
             try:
                 parts = self.path.split('/')
                 if len(parts) >= 3:
@@ -1109,8 +1173,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({
                     'error': f'Errore interno: {str(e)}'
                 }).encode())
+            return
         
-        elif self.path.startswith('/rnid/'):
+        if self.path.startswith('/rnid/'):
             try:
                 parts = self.path.split('/')
                 if len(parts) >= 4:
@@ -1137,8 +1202,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({
                     'error': f'Errore interno: {str(e)}'
                 }).encode())
+            return
         
-        elif self.path.startswith('/ping/'):
+        if self.path.startswith('/ping/'):
             try:
                 parts = self.path.split('/')
                 if len(parts) >= 3:
@@ -1164,8 +1230,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({
                     'error': f'Errore interno: {str(e)}'
                 }).encode())
+            return
 
-        elif self.path.startswith('/nmap/'):
+        if self.path.startswith('/nmap/'):
             try:
                 parts = self.path.split('/')
                 if len(parts) >= 3:
@@ -1192,8 +1259,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({
                     'error': f'Errore interno: {str(e)}'
                 }).encode())
+            return
         
-        elif self.path.startswith('/netcat/'):
+        if self.path.startswith('/netcat/'):
             try:
                 parts = self.path.split('/')
                 if len(parts) >= 4:
@@ -1241,8 +1309,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({
                     'error': f'Errore interno: {str(e)}'
                 }).encode())
+            return
         
-        elif self.path.startswith('/rnpath_drop/'):
+        if self.path.startswith('/rnpath_drop/'):
             try:
                 parts = self.path.split('/')
                 if len(parts) >= 3:
@@ -1260,7 +1329,6 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     self.wfile.write(json.dumps({
                         'error': 'Formato URL non valido. Usa: /rnpath_drop/<hash>'
                     }).encode())
-
             except Exception as e:
                 self.send_response(500)
                 self.send_header('Content-Type', 'application/json')
@@ -1268,8 +1336,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps({
                     'error': f'Errore interno: {str(e)}'
                 }).encode())
+            return
 
-        elif self.path == '/rnid_handlers':
+        if self.path == '/rnid_handlers':
             handlers = [
                 {
                     'name': 'rnstransport.probe',
@@ -1312,8 +1381,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
             self.wfile.write(json.dumps({'handlers': handlers}).encode())
+            return
         
-        elif self.path == '/data':
+        if self.path == '/data':
             try:
                 if os.path.exists('nodes_geo.json'):
                     with open('nodes_geo.json', 'r') as f:
@@ -1331,15 +1401,17 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(json.dumps(data).encode())
             except:
                 self.send_error(500, "Errore caricamento dati")
+            return
         
-        elif self.path == '/refresh':
+        if self.path == '/refresh':
             success = run_rnstatus()
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
             self.wfile.write(json.dumps({'success': success}).encode())
+            return
         
-        elif self.path == '/localnode':
+        if self.path == '/localnode':
             local_node = dict(LOCAL_NODE_CONFIG)
             identifiers = get_local_node_identifiers()
             
@@ -1358,8 +1430,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
             self.wfile.write(json.dumps(local_node).encode())
+            return
         
-        elif self.path == '/robots.txt':
+        if self.path == '/robots.txt':
             try:
                 if os.path.exists('robots.txt'):
                     with open('robots.txt', 'r') as f:
@@ -1372,8 +1445,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     self.send_error(404, "robots.txt not found")
             except Exception as e:
                 self.send_error(500, str(e))
+            return
 
-        elif self.path == '/sitemap.xml':
+        if self.path == '/sitemap.xml':
             try:
                 if os.path.exists('sitemap.xml'):
                     with open('sitemap.xml', 'r') as f:
@@ -1386,13 +1460,96 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                     self.send_error(404, "sitemap.xml not found")
             except Exception as e:
                 self.send_error(500, str(e))
+            return
         
-        elif self.path in ['/', '/index.html', '/map.html']:
+        if self.path.startswith('/discover_handlers/'):
+            try:
+                parts = self.path.split('/')
+                if len(parts) >= 3:
+                    transport_id = parts[2]
+                    
+                    # Lista di handler da scoprire
+                    handlers_to_check = [
+                        'rnstransport.probe',
+                        'lxmf.propagation', 
+                        'lxmf.delivery',
+                        'call.audio',
+                        'nomadnetwork.node'
+                    ]
+                    
+                    discovered = []
+                    for handler in handlers_to_check:
+                        h = get_node_handler_hash(transport_id, handler)
+                        if h:
+                            discovered.append({
+                                'name': handler,
+                                'hash': h
+                            })
+                    
+                    result = {
+                        'success': True,
+                        'transport_id': transport_id,
+                        'handlers': discovered
+                    }
+                    
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/json')
+                    self.end_headers()
+                    self.wfile.write(json.dumps(result).encode())
+                else:
+                    self.send_response(400)
+                    self.end_headers()
+            except Exception as e:
+                self.send_response(500)
+                self.end_headers()
+            return
+
+        # 2. Endpoint per risoluzione DNS
+        if self.path.startswith('/dns/'):
+            try:
+                parts = self.path.split('/')
+                if len(parts) >= 3:
+                    hostname = parts[2]
+                    
+                    try:
+                        ip = socket.gethostbyname(hostname)
+                        result = {
+                            'success': True,
+                            'hostname': hostname,
+                            'ip': ip
+                        }
+                    except socket.gaierror:
+                        result = {
+                            'success': False,
+                            'hostname': hostname,
+                            'error': 'DNS resolution failed'
+                        }
+                    
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/json')
+                    self.end_headers()
+                    self.wfile.write(json.dumps(result).encode())
+                else:
+                    self.send_response(400)
+                    self.end_headers()
+            except Exception as e:
+                self.send_response(500)
+                self.end_headers()
+            return
+
+
+        # ============================================
+        # MAP.HTML
+        # ============================================
+        if self.path in ['/', '/index.html', '/map.html']:
             if os.path.exists('map.html'):
                 with open('map.html', 'rb') as f:
                     content = f.read()
                 self.send_response(200)
                 self.send_header('Content-Type', 'text/html')
+                self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
+                self.send_header('Pragma', 'no-cache')
+                self.send_header('Expires', '0')
                 self.end_headers()
                 self.wfile.write(content)
             else:
@@ -1433,9 +1590,12 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
                 self.send_header('Content-Type', 'text/html')
                 self.end_headers()
                 self.wfile.write(html_content)
+            return
         
-        else:
-            super().do_GET()
+        # ============================================
+        # ALTRI FILE - SUPER
+        # ============================================
+        super().do_GET()
 
 # ============ CLASSE SERVER CON REUSE ADDRESS ============
 class ReuseTCPServer(socketserver.TCPServer):
@@ -1446,7 +1606,6 @@ class ReuseTCPServer(socketserver.TCPServer):
 def main():
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     
-    # Gestione segnali per chiusura pulita
     def signal_handler(sig, frame):
         print("\n👋 Server fermato")
         sys.exit(0)
@@ -1480,7 +1639,6 @@ def main():
     thread.start()
     
     try:
-        # Usa ReuseTCPServer per evitare "Address already in use"
         server = ReuseTCPServer(("", PORT), RequestHandler)
         print(f"\n✅ Server pronto: http://localhost:{PORT}")
         print("📌 Il nodo locale è sempre incluso nella mappa")

@@ -34,6 +34,17 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     
+    <!-- Android / Mobile -->
+    <meta name="theme-color" content="#0f172a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    <!-- Manifest PWA (opzionale, per "Aggiungi a Home") -->
+    <link rel="manifest" href="/manifest.json">
+
+
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
@@ -200,7 +211,7 @@
             <span style="color: #333; margin: 0 6px;">·</span>
             <a href="https://github.com/argo79/RNS-Manager" target="_blank">GitHub</a>
             <span style="color: #333; margin: 0 6px;">·</span>
-            <span style="color: #444;">v1.0.0</span>
+            <span style="color: #444;">v1.1.0</span>
             <span style="color: #333; margin: 0 6px;">·</span>
             <span style="color: #444;">Licenza MIT</span>
         </div>
@@ -312,10 +323,71 @@
             map.getPane('labels').style.zIndex = 650;
             map.getPane('labels').style.pointerEvents = 'none';
             
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            // Layer 1: CartoDB Dark (default)
+            const cartoDark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
                 attribution: '© OpenStreetMap, © CartoDB',
                 subdomains: 'abcd',
                 maxZoom: 19
+            });
+            
+            // Layer 2: OpenStreetMap standard
+            const osmStandard = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19
+            });
+            
+            // Layer 3: CartoDB Light
+            const cartoLight = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap, © CartoDB',
+                subdomains: 'abcd',
+                maxZoom: 19
+            });
+            
+            // Layer 4: Esri Satellite
+            const esriSatellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: '© Esri, Maxar, Earthstar Geographics',
+                maxZoom: 19
+            });
+            
+            // Layer 5: Esri Topo (topografico)
+            const esriTopo = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+                attribution: '© Esri, HERE, Garmin',
+                maxZoom: 19
+            });
+            
+            // Layer 9: OpenTopoMap
+            const openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors, SRTM',
+                maxZoom: 17
+            });
+            
+            // Layer 10: CartoDB Voyager
+            const cartoVoyager = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '© OpenStreetMap, © CartoDB',
+                subdomains: 'abcd',
+                maxZoom: 19
+            });
+            
+            // Aggiungi il layer di default
+            cartoDark.addTo(map);
+            
+            // ============================================
+            // === CONTROLLO LAYER ===
+            // ============================================
+            
+            const baseLayers = {
+                "🌙 Dark (Default)": cartoDark,
+                "☀️ Light": cartoLight,
+                "🗺️ OpenStreetMap": osmStandard,
+                "🛰️ Satellite": esriSatellite,
+                "🗾 Topografico": esriTopo,
+                "🏔️ OpenTopoMap": openTopoMap,
+                "🧭 Voyager": cartoVoyager
+            };
+            
+            L.control.layers(baseLayers, null, {
+                position: 'topleft',
+                collapsed: true
             }).addTo(map);
 
 
@@ -347,16 +419,18 @@
                 if (layer && layer.spiderfy) {
                     const childCount = layer.getAllChildMarkers().length;
                     
-                    // BLOCCA LO ZOOM
                     e.originalEvent.stopPropagation();
                     e.originalEvent.preventDefault();
                     
                     if (childCount > 1) {
-                        // TOGGLE: APRI O CHIUDI
                         if (layer._spiderfied) {
                             layer.unspiderfy();
                         } else {
                             layer.spiderfy();
+                            // FORZA IL TOGGLE DIRETTAMENTE
+                            setTimeout(function() {
+                                document.getElementById('toggle-labels-btn').click();
+                            }, 500);
                         }
                     }
                 }

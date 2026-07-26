@@ -19,13 +19,17 @@
     "transport_id": "8be0ab0bb1f42b08d1c66acf48eb9f18",
     "network_id": "8be0ab0bb1f42b08d1c66acf48eb9f18",
     "transport": true,
-    "last_heard": 1785072606.039095,
+    "last_heard": 1785109083.176836,
     "heard_count": 1,
-    "received": 1785072606.0391,
+    "received": 1785109083.176853,
     "stamp": "1472a03be3437933dd3d17649feee758cdbfd254f6d8fb8e16f8c478274bd954",
     "config_entry": "[[RNS-VPS REPMap ITALY]]\n  type = BackboneInterface\n  enabled = yes\n  remote = 82.223.44.241\n  target_port = 4242\n  transport_identity = 8be0ab0bb1f42b08d1c66acf48eb9f18",
-    "discovered": 1785072606.039104,
+    "discovered": 1785109083.176857,
     "address": "82.223.44.241",
-    "public_key": "1472a03be3437933dd3d17649feee758cdbfd254f6d8fb8e16f8c478274bd954105ba86e12a063eea47175711db120e83c21063667f58b46e2cf6bd1e99ff26b"
+    "public_key": "1472a03be3437933dd3d17649feee758cdbfd254f6d8fb8e16f8c478274bd954105ba86e12a063eea47175711db120e83c21063667f58b46e2cf6bd1e99ff26b",
+    "handler_hashes": {
+      "call.audio": "88d02ce0883f5514dbbbe61a2b76ccb5",
+      "rnstransport.probe": "26f4e16fa73de15ef03d738efbfd3b0c"
+    }
   }
 ]

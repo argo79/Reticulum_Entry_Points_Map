@@ -64,7 +64,6 @@ function showPersistentNotification(msg, type = 'info', duration = 0) {
     el.textContent = msg;
     document.body.appendChild(el);
     
-    // Solo se duration > 0, altrimenti rimane per sempre
     if (duration > 0) {
         ruler.notificationTimeout = setTimeout(() => {
             if (el.parentNode) {
@@ -88,7 +87,6 @@ function updatePersistentNotification(msg, type = 'info') {
         };
         el.textContent = msg;
         el.style.borderColor = colors[type] || colors.info;
-        // NON cancelliamo il timeout, la notifica rimane finché non viene disattivato lo strumento
     }
 }
 
@@ -102,6 +100,54 @@ function clearPersistentNotification() {
         clearTimeout(ruler.notificationTimeout);
         ruler.notificationTimeout = null;
     }
+}
+
+// ============================================
+// === NOTIFICHE NORMALI ===
+// ============================================
+
+function showNotification(message, type = 'info') {
+    const existing = document.getElementById('notification');
+    if (existing) existing.remove();
+    
+    const notification = document.createElement('div');
+    notification.id = 'notification';
+    const colors = {
+        info: '#3b82f6',
+        success: '#10b981',
+        warning: '#f59e0b',
+        error: '#ef4444'
+    };
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        padding: 12px 16px;
+        background: ${colors[type] || colors.info};
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 9999;
+        font-weight: 500;
+        animation: slideIn 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    `;
+    
+    notification.innerHTML = `
+        <i class="fas fa-${type === 'error' ? 'exclamation-circle' : type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+        ${message}
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.style.animation = 'slideOut 0.3s ease forwards';
+            setTimeout(() => notification.remove(), 300);
+        }
+    }, 3000);
 }
 
 // ============================================
@@ -131,20 +177,19 @@ function toggleRuler() {
         btn.style.borderColor = '#10b981';
         btn.style.background = 'rgba(16, 185, 129, 0.2)';
         btn.innerHTML = '<i class="fas fa-ruler-combined" style="color: #10b981;"></i>';
-        showPersistentNotification('📏 Clicca su mappa o nodo per misurare, doppio click per terminare', 'success', 0); // duration 0 = rimane
+        showPersistentNotification('📏 Clicca su mappa o nodo per misurare, doppio click per terminare', 'success', 0);
         ruler.map.on('click', onRulerClick);
         ruler.map.on('dblclick', finishRuler);
     } else {
         btn.style.borderColor = '#f59e0b';
         btn.style.background = 'var(--gray-800)';
         btn.innerHTML = '<i class="fas fa-ruler-combined"></i>';
-        clearPersistentNotification();  // ← PULISCE LA NOTIFICA
+        clearPersistentNotification();
         ruler.map.off('click', onRulerClick);
         ruler.map.off('dblclick', finishRuler);
         clearRuler();
     }
 }
-
 
 function onRulerClick(e) {
     if (e.originalEvent) {
@@ -237,7 +282,6 @@ function finishRuler() {
     }
     const total = calcRulerDistance();
     updatePersistentNotification(`✅ Misurazione: ${(total/1000).toFixed(2)} km (${ruler.points.length-1} segmenti)`, 'success');
-    // La notifica rimane fino a quando non disattivi il righello
 }
 
 function clearRuler() {
@@ -322,17 +366,17 @@ function toggleCircleTool() {
         btn.style.borderColor = '#8b5cf6';
         btn.style.background = 'rgba(139, 92, 246, 0.2)';
         btn.innerHTML = '<i class="fas fa-circle" style="color: #8b5cf6;"></i>';
-        showPersistentNotification('⭕ Clicca su mappa o nodo per il centro, poi trascina per il raggio', 'info', 0); // duration 0 = rimane
+        showPersistentNotification('⭕ Clicca su mappa o nodo per il centro, poi trascina per il raggio', 'info', 0);
         circleTool.map.on('click', onCircleClick);
     } else {
         btn.style.borderColor = '#f59e0b';
         btn.style.background = 'var(--gray-800)';
         btn.innerHTML = '<i class="fas fa-circle"></i>';
-        clearPersistentNotification();  // ← PULISCE LA NOTIFICA
+        clearPersistentNotification();
         circleTool.map.off('click', onCircleClick);
         circleTool.map.off('mousemove', dragCircle);
         circleTool.map.off('click', finishCircle);
-        clearCircle();  // ← PULISCE TUTTO (centro, cerchio)
+        clearCircle();
     }
 }
 
@@ -492,7 +536,7 @@ window.startCircleFromNode = function(latlng, name) {
 };
 
 // ============================================
-// === ETICHETTE NODI ===
+// === ETICHETTE NODI (ORIGINALI) ===
 // ============================================
 
 let nodeLabels = [];
@@ -501,6 +545,7 @@ const LABEL_ZOOM_THRESHOLD = 8;
 
 window.initLabels = function(mapInstance) {
     window._labelMap = mapInstance;
+    console.log('✅ initLabels chiamato');
 };
 
 window.toggleLabels = function() {
@@ -580,7 +625,6 @@ function updateNodeLabels(visible) {
     const map = window._labelMap;
     if (!map) return;
     
-    // Rimuovi tutti i label esistenti
     nodeLabels.forEach(label => {
         if (map.hasLayer(label)) {
             map.removeLayer(label);
@@ -590,12 +634,10 @@ function updateNodeLabels(visible) {
     
     if (!visible) return;
     
-    // Raccogli i marker che sono EFFETTIVAMENTE sulla mappa
     const visibleMarkers = [];
     
     map.eachLayer(function(layer) {
         if (layer instanceof L.Marker && layer.nodeData) {
-            // Prendi la posizione EFFETTIVA del marker (dove Leaflet l'ha messo)
             const latlng = layer.getLatLng();
             visibleMarkers.push({
                 node: layer.nodeData,
@@ -605,12 +647,8 @@ function updateNodeLabels(visible) {
         }
     });
     
-    // Se non ci sono marker visibili, esci
-    if (visibleMarkers.length === 0) {
-        return;
-    }
+    if (visibleMarkers.length === 0) return;
     
-    // Crea le etichette per ogni marker visibile usando la sua posizione EFFETTIVA
     visibleMarkers.forEach(item => {
         const node = item.node;
         const latlng = item.latlng;
@@ -618,7 +656,6 @@ function updateNodeLabels(visible) {
         if (!node.geolocated || !node.latitude || !node.longitude) return;
         if (!node.name || node.name === 'Unnamed Node') return;
         
-        // Crea il label nella posizione EFFETTIVA del marker
         const label = createNodeLabelAtPosition(node, latlng);
         if (label) {
             label.addTo(map);
@@ -678,7 +715,7 @@ function createNodeLabelAtPosition(node, position) {
         }),
         interactive: false,
         keyboard: false,
-        pane: 'labels'  // ← AGGIUNGI QUESTO!
+        pane: 'labels'
     });
     
     setTimeout(() => {
@@ -697,13 +734,11 @@ function createNodeLabelAtPosition(node, position) {
     return label;
 }
 
-// Nuova funzione per aggiornare le etichette per marker specifici
 window.updateNodeLabelsForMarkers = function(markers) {
     const map = window._labelMap;
     if (!map) return;
     if (!markers || markers.length === 0) return;
     
-    // Rimuovi tutti i label esistenti
     nodeLabels.forEach(label => {
         if (map.hasLayer(label)) {
             map.removeLayer(label);
@@ -711,7 +746,6 @@ window.updateNodeLabelsForMarkers = function(markers) {
     });
     nodeLabels = [];
     
-    // Raccogli i nodi dai marker forniti
     const visibleNodeHashes = new Set();
     const nodeDataList = [];
     
@@ -723,12 +757,8 @@ window.updateNodeLabelsForMarkers = function(markers) {
         }
     });
     
-    // Se non ci sono nodi, esci
-    if (nodeDataList.length === 0) {
-        return;
-    }
+    if (nodeDataList.length === 0) return;
     
-    // Crea le etichette per i nodi aperti
     nodeDataList.forEach(node => {
         if (!node.geolocated || !node.latitude || !node.longitude) return;
         if (!node.name || node.name === 'Unnamed Node') return;
@@ -741,8 +771,100 @@ window.updateNodeLabelsForMarkers = function(markers) {
     });
 };
 
+// ============================================
+// === ETICHETTE PER VENTAGLI (NUOVE) ===
+// ============================================
 
-window.updateNodeLabels = updateNodeLabels;
+let spiderLabelLayers = [];
+
+/**
+ * Mostra le etichette per i nodi in un ventaglio aperto
+ */
+function showSpiderLabels(layer, markers, map) {
+    if (!markers || markers.length === 0) return;
+    if (!labelsEnabled) return;
+    
+    const zoom = map.getZoom();
+    
+    // Rimuovi etichette vecchie per questo layer
+    if (layer._labelLayer) {
+        map.removeLayer(layer._labelLayer);
+        layer._labelLayer = null;
+    }
+    
+    const labelGroup = L.layerGroup();
+    
+    markers.forEach((marker) => {
+        const node = marker.nodeData;
+        if (!node || !node.name) return;
+        
+        const pos = marker.getLatLng();
+        const pixelsPerDegree = 256 * Math.pow(2, zoom) / 360;
+        const offsetDegrees = 30 / pixelsPerDegree;
+        const labelPos = L.latLng(
+            pos.lat + offsetDegrees,
+            pos.lng
+        );
+        
+        const label = L.marker(labelPos, {
+            icon: L.divIcon({
+                html: `
+                    <div style="
+                        background: rgba(0,0,0,0.85);
+                        color: white;
+                        padding: 2px 10px;
+                        border-radius: 4px;
+                        font-size: ${zoom >= 14 ? 12 : zoom >= 11 ? 10 : 9}px;
+                        font-weight: 600;
+                        border: 1px solid rgba(255,255,255,0.15);
+                        white-space: nowrap;
+                        text-shadow: 0 0 10px rgba(0,0,0,0.9);
+                        pointer-events: auto;
+                        cursor: pointer;
+                        transition: all 0.2s;
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+                        max-width: 200px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    "
+                    onmouseover="this.style.transform='scale(1.08)';this.style.background='rgba(59,130,246,0.9)'"
+                    onmouseout="this.style.transform='scale(1)';this.style.background='rgba(0,0,0,0.85)'">
+                        ${node.name}
+                    </div>
+                `,
+                iconSize: [0, 0],
+                iconAnchor: [0, 0],
+                className: 'spider-label'
+            })
+        });
+        
+        label.on('click', function() {
+            const nodeData = marker.nodeData;
+            if (nodeData && window.selectNode && window.filteredNodes) {
+                const filteredIdx = window.filteredNodes.indexOf(nodeData);
+                if (filteredIdx !== -1) {
+                    window.selectNode(filteredIdx);
+                }
+            }
+        });
+        
+        labelGroup.addLayer(label);
+    });
+    
+    labelGroup.addTo(map.getPane('labels'));
+    layer._labelLayer = labelGroup;
+    spiderLabelLayers.push(labelGroup);
+}
+
+/**
+ * Nasconde le etichette per un ventaglio chiuso
+ */
+function hideSpiderLabels(layer, map) {
+    if (layer._labelLayer) {
+        map.removeLayer(layer._labelLayer);
+        layer._labelLayer = null;
+    }
+}
 
 // ============================================
 // === ESPORTA FUNZIONI ===
@@ -755,3 +877,8 @@ window.toggleCircleTool = toggleCircleTool;
 window.initLabels = initLabels;
 window.toggleLabels = toggleLabels;
 window.updateNodeLabels = updateNodeLabels;
+window.updateNodeLabelsForMarkers = updateNodeLabelsForMarkers;
+window.showSpiderLabels = showSpiderLabels;
+window.hideSpiderLabels = hideSpiderLabels;
+
+console.log('✅ ruler.js caricato completamente');
