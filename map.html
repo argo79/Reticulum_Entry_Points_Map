@@ -262,7 +262,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- FOOTER - con indirizzi selezionabili        -->
+    <!-- FOOTER - SOLO SELEZIONABILE, STESSO ASPETTO -->
     <!-- ============================================ -->
     <footer class="app-footer">
         <div style="margin-bottom: 4px;">
@@ -275,29 +275,23 @@
             <span style="color: #444;">Licenza MIT</span>
         </div>
         
-        <div class="footer-addresses">
-            <span style="color: #FF6B00; font-weight: 600;">☕ Supporta lo sviluppo:</span>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 15px; font-size: 9px;">
+            <span style="color: #FF6B00;">☕ Support development:</span>
             
-            <div class="address-item">
-                <span class="address-label" style="font-weight: bold; color: #00A9FF;">XRP</span>
-                <code class="address-code" onclick="copyToClipboard('rULcbakdRpXR2jRxq7xKGnKGz8BmN46up4')" 
-                      title="Clicca per copiare">rULcbakdRpXR2jRxq7xKGnKGz8BmN46up4</code>
-                <span class="copy-hint">📋</span>
-            </div>
+            <span style="display: inline-flex; align-items: center; gap: 4px;">
+                <span style="font-weight: bold; color: #00A9FF;">XRP</span>
+                <code style="background: #111; padding: 1px 6px; border-radius: 2px; font-size: 9px; color: #00D4FF; font-family: monospace; user-select: all;">rULcbakdRpXR2jRxq7xKGnKGz8BmN46up4</code>
+            </span>
             
-            <div class="address-item">
-                <span class="address-label" style="font-weight: bold; color: #FF6600;">XMR</span>
-                <code class="address-code" onclick="copyToClipboard('87jacZEtYvXcgnvEp7wu45gLwRBYpvwMr3N9dqhNipPWV69XwQX658tS73VEdghLopG1wA4STEdMPcGF8Tc3e18eJyQ4kMA')" 
-                      title="Clicca per copiare">87jacZEtYvXcgnvEp7wu45gLwRBYpvwMr3N9dqhNipPWV69XwQX658tS73VEdghLopG1wA4STEdMPcGF8Tc3e18eJyQ4kMA</code>
-                <span class="copy-hint">📋</span>
-            </div>
+            <span style="display: inline-flex; align-items: center; gap: 4px;">
+                <span style="font-weight: bold; color: #FF6600;">XMR</span>
+                <code style="background: #111; padding: 1px 6px; border-radius: 2px; font-size: 9px; color: #00D4FF; font-family: monospace; user-select: all;">87jacZEtYvXcgnvEp7wu45gLwRBYpvwMr3N9dqhNipPWV69XwQX658tS73VEdghLopG1wA4STEdMPcGF8Tc3e18eJyQ4kMA</code>
+            </span>
             
-            <div class="address-item">
-                <span class="address-label" style="font-weight: bold; color: #3C3C3D;">ETH</span>
-                <code class="address-code" onclick="copyToClipboard('0xd2d85288df96B4162814Ca7492039620371b9D81')" 
-                      title="Clicca per copiare">0xd2d85288df96B4162814Ca7492039620371b9D81</code>
-                <span class="copy-hint">📋</span>
-            </div>
+            <span style="display: inline-flex; align-items: center; gap: 4px;">
+                <span style="font-weight: bold; color: #3C3C3D;">ETH</span>
+                <code style="background: #111; padding: 1px 6px; border-radius: 2px; font-size: 9px; color: #00D4FF; font-family: monospace; user-select: all;">0xd2d85288df96B4162814Ca7492039620371b9D81</code>
+            </span>
         </div>
     </footer>
 
