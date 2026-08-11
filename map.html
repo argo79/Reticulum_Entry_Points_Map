@@ -1,65 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en"> <!-- IMPERATIVO: lingua internazionale per il crawler -->
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- ============================================ -->
-    <!-- SEO META TAG                                -->
-    <!-- ============================================ -->
-    <title>🌐 Reticulum Entry Points Map - Mappa interattiva della rete Reticulum</title>
-    
-    <meta name="description" content="Mappa interattiva dei nodi della rete Reticulum. Visualizza entry points, geolocalizzazione automatica e stato in tempo reale. Scopri la rete decentralizzata Reticulum.">
-    <meta name="keywords" content="Reticulum, RNS, entry points, network map, reticulum network, decentralized network, mesh network, Reticulum nodes, reticulum map, peer-to-peer">
+    <!-- VIEWPORT: unico, pulito e con viewport-fit per PWA -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    <!-- ========================================== -->
+    <!-- TITOLO (keyword primarie all'inizio)       -->
+    <!-- ========================================== -->
+    <title>Reticulum Network Map - Interactive RNS Nodes &amp; Entry Points</title>
+
+    <!-- ========================================== -->
+    <!-- DESCRIPTION (inglese, keyword secondarie)  -->
+    <!-- ========================================== -->
+    <meta name="description" content="Explore the interactive Reticulum Network Map. Discover global RNS entry points, mesh infrastructure, gateway availability, real-time node status, and decentralized offline communication coverage.">
+
+    <!-- ========================================== -->
+    <!-- ROBOTS & AUTORE (keywords ELIMINATE)       -->
+    <!-- ========================================== -->
     <meta name="author" content="arg0net">
     <meta name="robots" content="index, follow">
-    <meta name="language" content="Italian">
-    
-    <!-- Open Graph / Facebook -->
+
+    <!-- ========================================== -->
+    <!-- OPEN GRAPH / FACEBOOK (URL raw FIXATO)    -->
+    <!-- ========================================== -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://repmap.arg0net.org">
-    <meta property="og:title" content="Reticulum Entry Points Map - Mappa interattiva della rete Reticulum">
-    <meta property="og:description" content="Mappa interattiva dei nodi della rete Reticulum. Visualizza entry points, geolocalizzazione automatica e stato in tempo reale.">
-    <meta property="og:image" content="https://github.com/argo79/Reticulum_Entry_Points_Map/blob/master/repmap.jpg">
-    
-    <!-- Twitter -->
+    <meta property="og:title" content="Reticulum Network Map - Interactive RNS Nodes &amp; Entry Points">
+    <meta property="og:description" content="Explore the interactive Reticulum Network Map. Discover global RNS entry points, mesh infrastructure, gateway availability, and real-time node status for decentralized offline communication.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/argo79/Reticulum_Entry_Points_Map/master/repmap.jpg">
+
+    <!-- ========================================== -->
+    <!-- TWITTER (URL raw FIXATO)                   -->
+    <!-- ========================================== -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Reticulum Entry Points Map - Mappa interattiva della rete Reticulum">
-    <meta name="twitter:description" content="Mappa interattiva dei nodi della rete Reticulum. Visualizza entry points, geolocalizzazione automatica e stato in tempo reale.">
-    <meta name="twitter:image" content="https://github.com/argo79/Reticulum_Entry_Points_Map/blob/master/repmap.jpg">
-    
-    <!-- Canonical -->
+    <meta name="twitter:title" content="Reticulum Network Map - Interactive RNS Nodes &amp; Entry Points">
+    <meta name="twitter:description" content="Explore the interactive Reticulum Network Map. Discover global RNS entry points, mesh infrastructure, gateway availability, and real-time node status for decentralized offline communication.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/argo79/Reticulum_Entry_Points_Map/master/repmap.jpg">
+
+    <!-- ========================================== -->
+    <!-- CANONICAL (URL corretto)                   -->
+    <!-- ========================================== -->
     <link rel="canonical" href="https://repmap.arg0net.org">
-    
-    <!-- Favicon -->
+
+    <!-- ========================================== -->
+    <!-- FAVICON & PWA                             -->
+    <!-- ========================================== -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
-    <!-- Android / Mobile -->
+    <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#0f172a">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-    <!-- Manifest PWA (opzionale, per "Aggiungi a Home") -->
-    <link rel="manifest" href="/manifest.json">
-
-
-    <!-- Schema.org JSON-LD -->
+    <!-- ========================================== -->
+    <!-- SCHEMA.ORG JSON-LD (URL e dati FIXATI)    -->
+    <!-- ========================================== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Reticulum Entry Points Map",
-      "description": "Mappa interattiva dei nodi della rete Reticulum con geolocalizzazione automatica",
-      "applicationCategory": "Network Tool",
-      "operatingSystem": "Linux, Web",
+      "name": "Reticulum Network Map",
+      "description": "Interactive map of Reticulum entry points, RNS nodes, and global mesh network infrastructure.",
+      "applicationCategory": "NetworkApplication",
+      "operatingSystem": "Any",
+      "inLanguage": "en",
+      "url": "https://repmap.arg0net.org",
       "author": {
         "@type": "Person",
         "name": "argo79",
         "url": "https://github.com/argo79"
       },
-      "url": "https://arg0net.org",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -67,22 +79,19 @@
       }
     }
     </script>
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="map.css">
-    
-    <!-- Leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
-    <script src="/ruler.js"></script>
 
-    <!-- MarkerCluster -->
+    <!-- ========================================== -->
+    <!-- CSS E LIBRERIE (invariati)                 -->
+    <!-- ========================================== -->
+    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
-    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
     
-    <!-- Font Awesome -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="/ruler.js"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -113,6 +122,53 @@
         </div>
     </header>
     
+    </header>
+    
+    <!-- ============================================ -->
+    <!-- SEO CONTENT - VISIBILE A GOOGLE MA NON ALL'UTENTE -->
+    <!-- ============================================ -->
+    <div style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;" 
+         aria-hidden="true" 
+         role="presentation">
+        
+        <h1>Reticulum Network Map - Interactive Mesh &amp; RNS Entry Points</h1>
+        
+        <p>
+            The Reticulum Network Map is an interactive visualization of the global 
+            Reticulum ecosystem. This map shows public RNS entry points, mesh network nodes, 
+            gateway infrastructure, and real-time connectivity status. Reticulum is a 
+            decentralized, encrypted networking stack designed for off-grid, ad-hoc, 
+            and peer-to-peer communication.
+        </p>
+        
+        <h2>Reticulum Network Features</h2>
+        <ul>
+            <li>Worldwide coverage of Reticulum nodes and entry points</li>
+            <li>RNS (Reticulum Name System) node registry</li>
+            <li>Gateway availability and transport protocols</li>
+            <li>Backbone nodes, TCP servers, RNodes, I2P interfaces</li>
+            <li>Offline mesh networking for emergency and rural areas</li>
+            <li>Real-time node status (online/offline)</li>
+        </ul>
+        
+        <h2>Why Monitor the Reticulum Network?</h2>
+        <p>
+            This map is essential for developers, network operators, and enthusiasts 
+            exploring decentralized communications. Monitor node uptime, discover 
+            peers in your area, and plan your own mesh infrastructure deployment.
+            The Reticulum networking stack powers applications like LXMF messaging, 
+            NomadNet, and other delay-tolerant services.
+        </p>
+        
+        <h3>Reticulum Entry Points</h3>
+        <p>
+            Entry points are public nodes that allow new users to join the Reticulum 
+            network. Each node is color-coded by type: Backbone (blue), TCP Server (green), 
+            RNode (orange), I2P (purple), or Other (gray). Offline nodes are shown in red.
+        </p>
+    </div>
+    
+
     <div class="main-container">
         <div class="map-container">
             <div id="map"></div>
@@ -206,7 +262,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- FOOTER - come le altre pagine               -->
+    <!-- FOOTER - con indirizzi selezionabili        -->
     <!-- ============================================ -->
     <footer class="app-footer">
         <div style="margin-bottom: 4px;">
@@ -219,23 +275,29 @@
             <span style="color: #444;">Licenza MIT</span>
         </div>
         
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 15px; font-size: 9px;">
-            <span style="color: #FF6B00;">☕ Supporta lo sviluppo:</span>
+        <div class="footer-addresses">
+            <span style="color: #FF6B00; font-weight: 600;">☕ Supporta lo sviluppo:</span>
             
-            <span style="display: inline-flex; align-items: center; gap: 4px;">
-                <span style="font-weight: bold; color: #00A9FF;">XRP</span>
-                <code style="background: #111; padding: 1px 6px; border-radius: 2px; font-size: 9px; color: #00D4FF; font-family: monospace;">rULcbakdRpXR2jRxq7xKGnKGz8BmN46up4</code>
-            </span>
+            <div class="address-item">
+                <span class="address-label" style="font-weight: bold; color: #00A9FF;">XRP</span>
+                <code class="address-code" onclick="copyToClipboard('rULcbakdRpXR2jRxq7xKGnKGz8BmN46up4')" 
+                      title="Clicca per copiare">rULcbakdRpXR2jRxq7xKGnKGz8BmN46up4</code>
+                <span class="copy-hint">📋</span>
+            </div>
             
-            <span style="display: inline-flex; align-items: center; gap: 4px;">
-                <span style="font-weight: bold; color: #FF6600;">XMR</span>
-                <code style="background: #111; padding: 1px 6px; border-radius: 2px; font-size: 9px; color: #00D4FF; font-family: monospace;">87jacZEtYvXcgnvEp7wu45gLwRBYpvwMr3N9dqhNipPWV69XwQX658tS73VEdghLopG1wA4STEdMPcGF8Tc3e18eJyQ4kMA</code>
-            </span>
+            <div class="address-item">
+                <span class="address-label" style="font-weight: bold; color: #FF6600;">XMR</span>
+                <code class="address-code" onclick="copyToClipboard('87jacZEtYvXcgnvEp7wu45gLwRBYpvwMr3N9dqhNipPWV69XwQX658tS73VEdghLopG1wA4STEdMPcGF8Tc3e18eJyQ4kMA')" 
+                      title="Clicca per copiare">87jacZEtYvXcgnvEp7wu45gLwRBYpvwMr3N9dqhNipPWV69XwQX658tS73VEdghLopG1wA4STEdMPcGF8Tc3e18eJyQ4kMA</code>
+                <span class="copy-hint">📋</span>
+            </div>
             
-            <span style="display: inline-flex; align-items: center; gap: 4px;">
-                <span style="font-weight: bold; color: #3C3C3D;">ETH</span>
-                <code style="background: #111; padding: 1px 6px; border-radius: 2px; font-size: 9px; color: #00D4FF; font-family: monospace;">0xd2d85288df96B4162814Ca7492039620371b9D81</code>
-            </span>
+            <div class="address-item">
+                <span class="address-label" style="font-weight: bold; color: #3C3C3D;">ETH</span>
+                <code class="address-code" onclick="copyToClipboard('0xd2d85288df96B4162814Ca7492039620371b9D81')" 
+                      title="Clicca per copiare">0xd2d85288df96B4162814Ca7492039620371b9D81</code>
+                <span class="copy-hint">📋</span>
+            </div>
         </div>
     </footer>
 
